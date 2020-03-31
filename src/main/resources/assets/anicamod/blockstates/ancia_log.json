@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "anicamod:block/anica_log" },
+        "axis=z":   { "model": "anicamod:block/anica_log", "x": 90 },
+        "axis=x":   { "model": "anicamod:block/anica_log", "x": 90, "y": 90 }
+    }
+}

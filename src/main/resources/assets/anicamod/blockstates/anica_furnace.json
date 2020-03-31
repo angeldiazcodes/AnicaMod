@@ -1,0 +1,10 @@
+{
+    "variants": {
+    "facing=north": { "model": "anicamod:block/anica_furnace" },
+    "facing=south": { "model": "anicamod:block/anica_furnace", "y": 180 },
+    "facing=west": { "model": "anicamod:block/anica_furnace", "y": 270 },
+    "facing=east": { "model": "anicamod:block/anica_furnace", "y": 90 },
+    "facing=up": { "model": "anicamod:block/anica_furnace", "x": -90 },
+    "facing=down": { "model": "anicamod:block/anica_furnace", "x": 90 }
+    }
+}

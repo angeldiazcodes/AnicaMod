@@ -1,0 +1,6 @@
+{
+    "parent": "block/crop",
+    "textures": {
+    "crop": "anicamod:block/anica_crop_pepper_block_stage0"
+    }
+}

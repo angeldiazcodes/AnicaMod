@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+    "particle": "anicamod:block/anica_generator",
+    "down": "anicamod:block/anica_generator",
+    "up": "anicamod:block/anica_generator",
+    "east": "anicamod:block/anica_generator",
+    "west": "anicamod:block/anica_generator",
+    "north": "anicamod:block/anica_generator_front",
+    "south": "anicamod:block/anica_generator"
+    }
+}

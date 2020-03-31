@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "age=0": { "model" : "anicamod:block/anica_crop_pepper_block_stage0"},
+		"age=1": { "model" : "anicamod:block/anica_crop_pepper_block_stage0"},
+        "age=2": { "model" : "anicamod:block/anica_crop_pepper_block_stage1"},
+        "age=3": { "model" : "anicamod:block/anica_crop_pepper_block_stage1"},
+        "age=4": { "model" : "anicamod:block/anica_crop_pepper_block_stage1"},
+        "age=5": { "model" : "anicamod:block/anica_crop_pepper_block_stage2"},   
+        "age=6": { "model" : "anicamod:block/anica_crop_pepper_block_stage2"},
+        "age=7": { "model" : "anicamod:block/anica_crop_pepper_block_stage3"}                    
+    }
+}

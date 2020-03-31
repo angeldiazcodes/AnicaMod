@@ -1,0 +1,33 @@
+{
+	"item.anicamod.anica_item": "Anica Item",
+	
+	"item.anicamod.anica_axe": "Anica Axe",
+	"item.anicamod.anica_hoe": "Anica Hoe",
+	"item.anicamod.anica_pickaxe": "Anica Pickaxe",
+	"item.anicamod.anica_shovel": "Anica Shovel",
+	"item.anicamod.anica_sword": "Anica Sword",
+					
+	"item.anicamod.anica_helmet": "Anica Helmet",
+	"item.anicamod.anica_chestplate": "Anica Chestplate",
+	"item.anicamod.anica_leggings": "Anica Leggings",
+	"item.anicamod.anica_boots": "Anica Boots",
+	
+	"item.anicamod.rain_item": "Rain Item",
+
+	"item.anicamod.anica_mob_entity_egg": "Anica Mob Entity Egg",
+	
+	"block.anicamod.anica_block": "Anica Block",
+	"block.anicamod.anica_ore": "Anica Ore",
+	"block.anicamod.anica_furnace": "Anica Fast Furnace",	
+	"block.anicamod.anica_generator": "Anica Generator",
+	"block.anicamod.anica_battery": "Anica Battery",
+	"block.anicamod.anica_crop_pepper_block": "Anica Pepper",
+	"block.anicamod.anica_plank": "Anica Plank",
+	"block.anicamod.anica_leaves": "Anica Leaves",
+	"block.anicamod.anica_log": "Anica Log",
+	"block.anicamod.anica_sapling": "Anica Sapling",
+					
+	"entity.anicamod.anica_mob_entity": "Anica Mob Entity",
+	
+	"itemGroup.anica": "Anica Item Group"
+}

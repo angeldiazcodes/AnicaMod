@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "anicamod:block/anica_sapling"
+    }
+}

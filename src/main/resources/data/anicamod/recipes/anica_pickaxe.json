@@ -1,0 +1,18 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	
+	"pattern":
+	[
+		"III",
+		" S ",
+		" S "
+	],
+	
+	"key":
+	{
+		"I": { "item": "anicamod:anica_item"},
+		"S": { "item": "minecraft:stick"}
+	},
+	
+	"result": { "item": "anicamod:anica_pickaxe"}
+}
