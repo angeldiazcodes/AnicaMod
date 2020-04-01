@@ -16,6 +16,8 @@
 
 	"item.anicamod.anica_mob_entity_egg": "Anica Mob Entity Egg",
 	
+	"item.anicamod.anica_acid_bucket": "Anica Acid Bucket",
+	
 	"block.anicamod.anica_block": "Anica Block",
 	"block.anicamod.anica_ore": "Anica Ore",
 	"block.anicamod.anica_furnace": "Anica Fast Furnace",	
@@ -26,6 +28,8 @@
 	"block.anicamod.anica_leaves": "Anica Leaves",
 	"block.anicamod.anica_log": "Anica Log",
 	"block.anicamod.anica_sapling": "Anica Sapling",
+	
+	"block.anicamod.anica_acid_still": "Anica Acid",
 					
 	"entity.anicamod.anica_mob_entity": "Anica Mob Entity",
 	

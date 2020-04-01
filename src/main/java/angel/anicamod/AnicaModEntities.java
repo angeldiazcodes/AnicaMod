@@ -3,15 +3,12 @@ package angel.anicamod;
 import angel.anicamod.entities.AnicaMobEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.Item.Properties;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.biome.Biomes;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
@@ -19,6 +16,7 @@ import net.minecraftforge.registries.ObjectHolder;
 public class AnicaModEntities {
 
 	// Must setup entities here due to sequencing of Items, Blocks, Entities etc. 
+	@SuppressWarnings("unchecked")
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_MOB_ENTITY)
 	public static EntityType<AnicaMobEntity> anica_mob_entity = (EntityType<AnicaMobEntity>) EntityType.Builder.create(AnicaMobEntity::new, EntityClassification.CREATURE).build(AnicaMod.ANICA_MOB_ENTITY).setRegistryName(new ResourceLocation(AnicaMod.MODID, AnicaMod.ANICA_MOB_ENTITY));
 

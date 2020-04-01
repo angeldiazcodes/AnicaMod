@@ -1,6 +1,6 @@
 package angel.anicamod;
 
-import angel.anicamod.blocks.AnicaCropPepperBlock;
+import angel.anicamod.items.AnicaAcidBucketItem;
 import angel.anicamod.items.AnicaAxe;
 import angel.anicamod.items.AnicaBatteryItem;
 import angel.anicamod.items.AnicaBlockItem;
@@ -24,11 +24,9 @@ import angel.anicamod.items.AnicaSword;
 import angel.anicamod.items.RainItem;
 import angel.anicamod.lists.ArmorMaterialList;
 import angel.anicamod.lists.ToolMaterialList;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
+import angel.anicamod.util.helpers.ModUtil;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.BlockItem;
+import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
@@ -69,6 +67,9 @@ public class AnicaModItems {
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.RAIN_ITEM)
 	public static Item rain_item;
 	
+	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_ACID_BUCKET)	
+	public static  Item anica_bucket_item;
+	
 	// Blocks
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BLOCK)
 	public static Item anica_block;
@@ -105,6 +106,7 @@ public class AnicaModItems {
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_PEPPER_ITEM)
 	public static Item anica_pepper_item;
 	
+	@SuppressWarnings("deprecation")
 	public static void register(IForgeRegistry<Item> registry)
 	{
 		
@@ -144,6 +146,9 @@ public class AnicaModItems {
 	    anica_boots = new AnicaBoots(ArmorMaterialList.anica, EquipmentSlotType.FEET, new Item.Properties().group(AnicaMod.anicaModTab));
 	    registry.register(anica_boots);
 	    
+	    anica_bucket_item = new AnicaAcidBucketItem( AnicaModFluidsList.ANICA_ACID_STILL, new Item.Properties().group(AnicaMod.anicaModTab));
+	    registry.register(anica_bucket_item);
+	    
 	    // Blocks
 	    anica_block = new AnicaBlockItem( AnicaModBlocks.anica_block, new Item.Properties().group(AnicaMod.anicaModTab));
 		registry.register(anica_block);
@@ -151,7 +156,7 @@ public class AnicaModItems {
 		anica_ore = new AnicaOreItem(AnicaModBlocks.anica_ore, new Item.Properties().group(AnicaMod.anicaModTab));
 		registry.register(anica_ore);	
 		
-		anica_furnace = new AnicaFurnaceItem(AnicaModBlocks.anica_furnace, new Item.Properties().group(AnicaMod.anicaModTab));
+		anica_furnace = new AnicaFurnaceItem(AnicaModBlocks.anica_furnace, new Item.Properties().group(AnicaMod.anicaModTab).maxStackSize(1));
 		registry.register(anica_furnace);	
 		
 		anica_generator = new AnicaGeneratorItem(AnicaModBlocks.anica_generator, new Item.Properties().group(AnicaMod.anicaModTab));

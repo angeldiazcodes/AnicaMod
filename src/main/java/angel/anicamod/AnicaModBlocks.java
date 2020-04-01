@@ -1,5 +1,6 @@
 package angel.anicamod;
 
+import angel.anicamod.blocks.AnicaAcidBlock;
 import angel.anicamod.blocks.AnicaBattery;
 import angel.anicamod.blocks.AnicaBlock;
 import angel.anicamod.blocks.AnicaFurnace;
@@ -84,6 +85,10 @@ public class AnicaModBlocks {
 	// Crops
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_CROP_PEPPER_BLOCK)
 	public static AnicaCropPepperBlock anica_crop_pepper_block = ModUtil._null();
+	
+	// Fluids
+	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_ACID_STILL) // ANICA_ACID
+	public static AnicaAcidBlock anica_acid_block = ModUtil._null();
 	
 	public static void registerTiles(IForgeRegistry<TileEntityType<?>> registry)
 	{
@@ -231,6 +236,9 @@ public class AnicaModBlocks {
 		
 		anica_sapling = new AnicaSapling(  () -> new AnicaTree() , Block.Properties.from( Blocks.OAK_SAPLING)) ;
 		registry.register( anica_sapling );
+		
+		anica_acid_block = new AnicaAcidBlock( AnicaModFluidsList.ANICA_ACID_STILL, Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100f).noDrops());
+		registry.register( anica_acid_block );
 		
 	}
 }

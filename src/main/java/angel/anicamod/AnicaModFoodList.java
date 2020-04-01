@@ -11,6 +11,7 @@ public class AnicaModFoodList {
 	// Foods
 	public static Food anica_food_pepper = ModUtil._null(); 
 
+	@SuppressWarnings("deprecation")
 	public static void createFood()
 	{
 		Builder anicaFoodPepper = new Food.Builder();

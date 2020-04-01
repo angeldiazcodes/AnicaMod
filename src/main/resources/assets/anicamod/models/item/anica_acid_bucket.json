@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "anicamod:item/anica_acid_bucket"
+    }
+}

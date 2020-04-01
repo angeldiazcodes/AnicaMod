@@ -11,6 +11,7 @@ import angel.anicamod.util.helpers.AnicaConfig;
 import angel.anicamod.world.AnicaBiomeWorldType;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
@@ -57,6 +58,8 @@ public class AnicaMod {
 	public static final String ANICA_BOOTS	 				= "anica_boots";
 	public static final String RAIN_ITEM	 				= "rain_item";
 	public static final String ANICA_PEPPER_ITEM			= "anica_pepper_item";
+	public static final String ANICA_ACID_BUCKET		 	= "anica_acid_bucket";
+	//public static final String ANICA_ACID		 			= "anica_acid";
 	
 	// Blocks
 	public static final String ANICA_BLOCK	 				= "anica_block";
@@ -87,7 +90,9 @@ public class AnicaMod {
 	public static final String ANICA_BATTERY_GUI 			= "textures/gui/anica_battery_gui.png";
 	public static final String ANICA_RAIN_ITEM_GUI			= "textures/gui/anica_rain_item_gui.png";
 	public static final String ANICA_MOB_ENTITY_TEXTURE	    = "textures/entity/anica_mob_entity.png";
-
+	public static final String ANICA_ACID_STILL_TEXTURE  	= "block/anica_acid_still";
+	public static final String ANICA_ACID_FLOW_TEXTURE  	= "block/anica_acid_flow";
+	
 	// Mobs
 	public static final String ANICA_MOB_ENTITY				= "anica_mob_entity";
 	public static final String ANICA_MOB_ENTITY_EGG			= "anica_mob_entity_egg";
@@ -104,6 +109,10 @@ public class AnicaMod {
 	
 	// Structures
 	public static final String ANICA_CABIN		 			= "anica_cabin";	
+	
+	// Fluids
+	public static final String ANICA_ACID_STILL		  		= "anica_acid_still";
+	public static final String ANICA_ACID_FLOW			  	= "anica_acid_flow";
 	
 	public static final Logger logger = LogManager.getLogger(MODID);
 	public static final String logStub = "[*****************]:";
@@ -186,11 +195,18 @@ public class AnicaMod {
         }
         
 	    @SubscribeEvent
-	    public static void registerStructures(RegistryEvent.Register<Feature<?>> event) {
+	    public static void registerStructures(final RegistryEvent.Register<Feature<?>> event) {
 	    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:registerStructures" );
 	    	AnicaModStrucutresList.registerStructures( event.getRegistry() );
 	    }
         
+	    @SubscribeEvent
+	    public static void registerFluids(final RegistryEvent.Register<Fluid> event) {
+	    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:registerFluids" );
+	    	AnicaModFluidsList.registerFluids( event.getRegistry() );
+	    }
+        
+	    
 	    // nothing to do here - already done
 	    @SubscribeEvent
 	    public static void registerItems(final RegistryEvent.Register<Item> event) {
