@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public class AnicaAcidBlock extends FlowingFluidBlock {
 
-	private static boolean debug = true;
+	private static boolean debug = false;
 	
 	@SuppressWarnings("deprecation")
 	public AnicaAcidBlock(FlowingFluid fluidIn, Properties builder) {
@@ -28,9 +28,13 @@ public class AnicaAcidBlock extends FlowingFluidBlock {
 	public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
 		if (AnicaAcidBlock.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaAcidBlock: onEntityCollision" );
 		
-		if (this.getFluid().isIn(AnicaModFluidsList.Tags.ANICA_ACID)) {
+		// if (this.getFluid().isIn(AnicaModFluidsList.Tags.ANICA_ACID)) { - this is not working ... 
+			
+		if (this.getFluid().isEquivalentTo(AnicaModFluidsList.ANICA_FLOWING_ACID) || this.getFluid().isEquivalentTo(AnicaModFluidsList.ANICA_ACID_STILL) ) { 	
+			if (AnicaAcidBlock.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaAcidBlock: You are in Anica Acid" );
 			if ( entityIn instanceof LivingEntity ) {
 				((LivingEntity) entityIn).addPotionEffect(new EffectInstance(Effects.POISON, 160, 2));
+				if (AnicaAcidBlock.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaAcidBlock: Poison for you" );
 			}
 			else {
 				entityIn.remove();
