@@ -28,32 +28,27 @@ public abstract class AnicaAcid extends FlowingFluid {
 
 	@Override
 	public Fluid getStillFluid() {
-		// TODO Auto-generated method stub
 		return AnicaModFluidsList.ANICA_ACID_STILL;
 	}
 
 	@Override
 	protected boolean canSourcesMultiply() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	protected void beforeReplacingBlock(IWorld worldIn, BlockPos pos, BlockState state) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	protected int getSlopeFindDistance(IWorldReader worldIn) {
-		// TODO Auto-generated method stub
 		return 4;
 	}
 
 	@Override
 	protected int getLevelDecreasePerBlock(IWorldReader worldIn) {
-		// TODO Auto-generated method stub
-		return 0;
+		return 3;
 	}
 
 	@Override
@@ -68,13 +63,11 @@ public abstract class AnicaAcid extends FlowingFluid {
 
 	@Override
 	public int getTickRate(IWorldReader p_205569_1_) {
-		// TODO Auto-generated method stub
-		return 0;
+		return 60;
 	}
 
 	@Override
 	protected float getExplosionResistance() {
-		// TODO Auto-generated method stub
 		return 100.0F;
 	}
 
@@ -90,7 +83,7 @@ public abstract class AnicaAcid extends FlowingFluid {
 	}
 
 	@Override
-	public int getLevel(IFluidState p_207192_1_) {
+	public int getLevel(IFluidState state) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
