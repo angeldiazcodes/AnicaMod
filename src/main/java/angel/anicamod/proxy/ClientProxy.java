@@ -16,7 +16,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod.EventBusSubscriber(Dist.CLIENT)
 public class ClientProxy implements IProxy {
@@ -43,8 +45,6 @@ public class ClientProxy implements IProxy {
         
         // Add structures
         WorldGen.setupWorldGen();
-        
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "ClientProxy:Init Done " + ScreenManager.isMissingScreen());
 	}
 
 	@Override

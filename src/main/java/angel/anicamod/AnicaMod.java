@@ -24,10 +24,12 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -35,8 +37,10 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 @Mod(AnicaMod.MODID)
+@EventBusSubscriber(modid = AnicaMod.MODID, bus = Bus.MOD)
 public class AnicaMod {
 	
 	// Anica Mod
@@ -121,6 +125,9 @@ public class AnicaMod {
 	public static final String ANICA_POTION_LONG_ODD		= "anica_potion_long_odd";
 	public static final String ANICA_POTION_SHORT_ODD		= "anica_potion_short_odd";
 	
+	// Paintings
+	public static final String ANICA_MOD_PAINTING			= "anica_painting";
+	
 	public static final Logger logger = LogManager.getLogger(MODID);
 	public static final String logStub = "[*****************]:";
 	public static boolean debug = true;
@@ -133,6 +140,9 @@ public class AnicaMod {
 
 	public AnicaMod() {
         instance = this; 
+
+        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        AnicaPaintingList.PAINTING_TYPES.register(modEventBus);
         
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, AnicaConfig.CLIENT_CONFIG);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, AnicaConfig.COMMON_CONFIG);
@@ -145,6 +155,7 @@ public class AnicaMod {
         AnicaConfig.loadConfig(AnicaConfig.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve("anicamod-common.toml"));
         
         MinecraftForge.EVENT_BUS.register(this);
+        
 	}
 	
 	private void setup( final FMLCommonSetupEvent event) {
@@ -172,7 +183,7 @@ public class AnicaMod {
 		public static void onItemsRegistry(final RegistryEvent.Register<Item> event)
 		{
 			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "onItemsRegistry: delegating to AnicaModItems");
-			AnicaModItems.register(event.getRegistry());
+			AnicaModItems.register(event.getRegistry());	
 		}
 		
 		@SubscribeEvent
@@ -222,7 +233,7 @@ public class AnicaMod {
 		@SubscribeEvent
 		public static void registerPotion(final RegistryEvent.Register<Potion> event) {
 	    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:registerPotion" );
-	    	AnicaModPotionList.registerPotion( event.getRegistry() );				
+	    	AnicaModPotionList.registerPotion( event.getRegistry() );
 		}
 	    // nothing to do here - already done
 	    @SubscribeEvent
