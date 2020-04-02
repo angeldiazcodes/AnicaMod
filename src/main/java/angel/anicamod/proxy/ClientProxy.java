@@ -2,6 +2,7 @@ package angel.anicamod.proxy;
 
 import angel.anicamod.AnicaMod;
 import angel.anicamod.AnicaModBlocks;
+import angel.anicamod.AnicaModPotionList;
 import angel.anicamod.gui.AnicaBatteryScreen;
 import angel.anicamod.gui.AnicaFurnaceScreen;
 import angel.anicamod.gui.AnicaGeneratorScreen;
@@ -25,6 +26,9 @@ public class ClientProxy implements IProxy {
 	{
 		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "ClientProxy:Init Starting " + ScreenManager.isMissingScreen());
         
+		// add potion recipies
+		AnicaModPotionList.addRecipes();
+		
 		OreGeneration.setupOrgeGeneration();
 	
 		// Couple our container(s) to the screen

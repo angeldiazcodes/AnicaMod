@@ -17,7 +17,21 @@
 	"item.anicamod.anica_mob_entity_egg": "Anica Mob Entity Egg",
 	
 	"item.anicamod.anica_acid_bucket": "Anica Acid Bucket",
-	
+
+	"effect.anicamod.anica_odd": "Odd",
+	"item.minecraft.potion.effect.anica_odd": "Anica Odd Potion",
+	"item.minecraft.potion.effect.anica_long_odd": "Anica Odd Potion",
+	"item.minecraft.potion.effect.anica_short_odd": "Anica Odd Potion",
+	"item.minecraft.splash_potion.effect.anica_odd": "Anica Odd Splash Potion",
+	"item.minecraft.splash_potion.effect.anica_long_odd": "Anica Odd Splash Potion",
+	"item.minecraft.splash_potion.effect.anica_short_odd": "Anica Odd Splash Potion",
+	"item.minecraft.lingering_potion.effect.anica_odd": "Anica Odd Lingering Potion",
+	"item.minecraft.lingering_potion.effect.anica_long_odd": "Anica Odd Lingering Potion",
+	"item.minecraft.lingering_potion.effect.anica_short_odd": "Anica Odd Lingering Potion",
+	"item.minecraft.tipped_arrow.effect.anica_odd": "Anica Odd Tipped Arrow",
+	"item.minecraft.tipped_arrow.effect.anica_long_odd": "Anica Odd Tipped Arrow",
+	"item.minecraft.tipped_arrow.effect.anica_short_odd": "Anica Odd Tipped Arrow",
+		
 	"block.anicamod.anica_block": "Anica Block",
 	"block.anicamod.anica_ore": "Anica Ore",
 	"block.anicamod.anica_furnace": "Anica Fast Furnace",	
@@ -32,6 +46,6 @@
 	"block.anicamod.anica_acid_still": "Anica Acid",
 					
 	"entity.anicamod.anica_mob_entity": "Anica Mob Entity",
-	
+
 	"itemGroup.anica": "Anica Item Group"
 }

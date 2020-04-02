@@ -16,6 +16,8 @@ import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.potion.Effect;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
@@ -114,6 +116,14 @@ public class AnicaMod {
 	public static final String ANICA_ACID_STILL		  		= "anica_acid_still";
 	public static final String ANICA_ACID_FLOW			  	= "anica_acid_flow";
 	
+	// Effects
+	public static final String ANICA_EFFECT_ODD				= "anica_effect_odd";
+	
+	// Potions
+	public static final String ANICA_POTION_ODD				= "anica_potion_odd";
+	public static final String ANICA_POTION_LONG_ODD		= "anica_potion_long_odd";
+	public static final String ANICA_POTION_SHORT_ODD		= "anica_potion_short_odd";
+	
 	public static final Logger logger = LogManager.getLogger(MODID);
 	public static final String logStub = "[*****************]:";
 	public static boolean debug = true;
@@ -206,7 +216,17 @@ public class AnicaMod {
 	    	AnicaModFluidsList.registerFluids( event.getRegistry() );
 	    }
         
+		@SubscribeEvent
+		public static void registerEffect(final RegistryEvent.Register<Effect> event) {
+	    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:registerEffect" );
+	    	AnicaModEffectList.registerEffect( event.getRegistry() );			
+		}
 	    
+		@SubscribeEvent
+		public static void registerPotion(final RegistryEvent.Register<Potion> event) {
+	    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:registerPotion" );
+	    	AnicaModPotionList.registerPotion( event.getRegistry() );				
+		}
 	    // nothing to do here - already done
 	    @SubscribeEvent
 	    public static void registerItems(final RegistryEvent.Register<Item> event) {
