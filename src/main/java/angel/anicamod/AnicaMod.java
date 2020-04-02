@@ -116,9 +116,6 @@ public class AnicaMod {
 	public static final String ANICA_ACID_STILL		  		= "anica_acid_still";
 	public static final String ANICA_ACID_FLOW			  	= "anica_acid_flow";
 	
-	// Effects
-	public static final String ANICA_EFFECT_ODD				= "anica_effect_odd";
-	
 	// Potions
 	public static final String ANICA_POTION_ODD				= "anica_potion_odd";
 	public static final String ANICA_POTION_LONG_ODD		= "anica_potion_long_odd";

@@ -9,7 +9,7 @@ import net.minecraftforge.registries.ObjectHolder;
 @ObjectHolder(AnicaMod.MODID)
 public class AnicaModEffectList {
 
-	public static final AnicaModEffect ANICA_EFFECT_ODD = (AnicaModEffect) new AnicaModEffect(EffectType.NEUTRAL, 0xD4F0AD).setRegistryName(AnicaMod.ANICA_EFFECT_ODD);
+	public static final AnicaModEffect ANICA_EFFECT_ODD = (AnicaModEffect) new AnicaModEffect(EffectType.NEUTRAL, 0xD4F0AD).setRegistryName(AnicaMod.ANICA_POTION_ODD);
 	
 	public static void registerEffect(final IForgeRegistry<Effect> registry) {
 		final Effect[] effects = {
