@@ -24,7 +24,7 @@ import net.minecraftforge.event.ForgeEventFactory;
 public class AnicaSapling extends BushBlock implements IGrowable {
 
 	public static final IntegerProperty STAGE = BlockStateProperties.STAGE_0_1;
-	protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0d, 0.0d, 2.0d, 14.0d, 12.0d, 14.0d);
+	protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
 	private final Supplier<Tree> tree;
 	
 	public AnicaSapling(Supplier<Tree> treeIn, Properties propertiesIn) {
@@ -60,6 +60,14 @@ public class AnicaSapling extends BushBlock implements IGrowable {
 			this.tree.get().func_225545_a_(serverWorld, serverWorld.getChunkProvider().getChunkGenerator(), pos, state, rand);
 		}
 	}
+
+	// grow
+	@Override
+	public void grow(ServerWorld serverWorld, Random rand, BlockPos pos, BlockState state) {
+		this.grow(serverWorld, pos, state, rand);
+		
+	}
+	
 	@Override
 	public boolean canGrow(IBlockReader arg0, BlockPos arg1, BlockState arg2, boolean arg3) {
 		return true;
@@ -68,13 +76,6 @@ public class AnicaSapling extends BushBlock implements IGrowable {
 	@Override
 	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
 		return (double)worldIn.rand.nextFloat() < 0.45D;
-	}
-
-	// grow
-	@Override
-	public void grow(ServerWorld serverWorld, Random rand, BlockPos pos, BlockState state) {
-		this.grow(serverWorld, pos, state, rand);
-		
 	}
 
 	@Override

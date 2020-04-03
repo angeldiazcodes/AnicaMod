@@ -167,7 +167,7 @@ public class AnicaModItems {
 		
 		anica_plank = new AnicaPlankItem( AnicaModBlocks.anica_plank, new Item.Properties().group(AnicaMod.anicaModTab));
 		registry.register(anica_plank);
-	
+		
 		anica_log = new AnicaLogItem( AnicaModBlocks.anica_log, new Item.Properties().group(AnicaMod.anicaModTab));
 		registry.register(anica_log);
 		
