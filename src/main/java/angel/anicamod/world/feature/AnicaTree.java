@@ -17,8 +17,7 @@ public class AnicaTree extends Tree {
 			new SimpleBlockStateProvider(AnicaModBlocks.anica_log.getDefaultState()),
 			new SimpleBlockStateProvider(AnicaModBlocks.anica_leaves.getDefaultState()),
 			new BlobFoliagePlacer(3,0))).baseHeight(14).heightRandA(5).foliageHeight(9).ignoreVines().setSapling((IPlantable)AnicaModBlocks.anica_sapling).build();
-			// baseHeight(14).heightRandA(5).foliageHeight(9).ignoreVines().setSapling( ... )
-
+	
 	@Override
 	protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean p_225546_2_) {
 		return Feature.NORMAL_TREE.withConfiguration(ANICA_TREE_CONFIG);

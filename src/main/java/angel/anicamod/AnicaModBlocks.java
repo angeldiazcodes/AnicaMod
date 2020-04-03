@@ -228,7 +228,7 @@ public class AnicaModBlocks {
 		anica_plank = new AnicaPlank(  Block.Properties.from(Blocks.OAK_PLANKS)); 
 		registry.register( anica_plank );
 			
-		anica_log = new AnicaLog( MaterialColor.WOOD, Block.Properties.from(Blocks.OAK_LOG));
+		anica_log = new AnicaLog( MaterialColor.WOOD, Block.Properties.from(Blocks.ACACIA_LOG));
 		registry.register( anica_log );
 		
 		anica_leaves = new AnicaLeaves( Block.Properties.from(Blocks.DARK_OAK_LEAVES));

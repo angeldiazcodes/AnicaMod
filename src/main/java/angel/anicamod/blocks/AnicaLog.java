@@ -11,5 +11,4 @@ public class AnicaLog extends LogBlock {
 		super(colorIn, properties);
 		setRegistryName(new ResourceLocation(AnicaMod.MODID, AnicaMod.ANICA_LOG));
 	}
-
 }
