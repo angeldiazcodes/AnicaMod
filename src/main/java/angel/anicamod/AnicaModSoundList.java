@@ -10,6 +10,6 @@ public class AnicaModSoundList {
 		
 	public static final DeferredRegister<SoundEvent> SOUND = new DeferredRegister<>(ForgeRegistries.SOUND_EVENTS, AnicaMod.MODID);
 
-	public static final RegistryObject<SoundEvent> ANICA_ENTITY_AMBIENT = SOUND.register("entity.anica_mob_entity",
-			() -> new SoundEvent(new ResourceLocation(AnicaMod.MODID, "entity.anica_mob_entity")));
+	public static final RegistryObject<SoundEvent> ANICA_ENTITY_AMBIENT = SOUND.register("entity.anica_mob_entity.ambient",
+			() -> new SoundEvent(new ResourceLocation(AnicaMod.MODID, "entity.anica_mob_entity.ambient")));
 	}
