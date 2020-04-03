@@ -82,17 +82,22 @@ public class AnicaMod {
 	public static final String ANICA_BATTERY_CONTAINER		= "anica_battery_container";
 	public static final String ANICA_BATTERY_TILE_ENTITY	= "anica_battery_tile_entity";
 	
+	public static final String ANICA_BASIC_SOLAR			= "anica_basic_solar";
+	public static final String ANICA_BASIC_SOLAR_CONTAINER	= "anica_basic_solar_container";
+	public static final String ANICA_BASIC_SOLAR_TILE_ENTITY= "anica_basic_solar_tile_entity";
+
 	public static final String ANICA_CROP_PEPPER_BLOCK	 	= "anica_crop_pepper_block";
 	
 	public static final String ANICA_PLANK				 	= "anica_plank";
 	public static final String ANICA_LOG					= "anica_log";
 	public static final String ANICA_LEAVES					= "anica_leaves";
 	public static final String ANICA_SAPLING				= "anica_sapling";
-	
+
 	// Textures
 	public static final String ANICA_FURNACE_GUI 			= "textures/gui/anica_furnace_gui.png";
 	public static final String ANICA_GENERATOR_GUI 			= "textures/gui/anica_generator_gui.png";
 	public static final String ANICA_BATTERY_GUI 			= "textures/gui/anica_battery_gui.png";
+	public static final String ANICA_BASIC_SOLAR_GUI 		= "textures/gui/anica_basic_solar_gui.png";
 	public static final String ANICA_RAIN_ITEM_GUI			= "textures/gui/anica_rain_item_gui.png";
 	public static final String ANICA_MOB_ENTITY_TEXTURE	    = "textures/entity/anica_mob_entity.png";
 	public static final String ANICA_ACID_STILL_TEXTURE  	= "block/anica_acid_still";

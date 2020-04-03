@@ -2,6 +2,7 @@ package angel.anicamod;
 
 import angel.anicamod.items.AnicaAcidBucketItem;
 import angel.anicamod.items.AnicaAxe;
+import angel.anicamod.items.AnicaBasicSolarItem;
 import angel.anicamod.items.AnicaBatteryItem;
 import angel.anicamod.items.AnicaBlockItem;
 import angel.anicamod.items.AnicaBoots;
@@ -86,6 +87,9 @@ public class AnicaModItems {
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BATTERY)
 	public static Item anica_battery;
 	
+	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BASIC_SOLAR)
+	public static Item anica_basic_solar;
+	
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_PLANK)
 	public static Item anica_plank;
 
@@ -164,6 +168,9 @@ public class AnicaModItems {
 	
 		anica_battery = new AnicaBatteryItem(AnicaModBlocks.anica_battery, new Item.Properties().group(AnicaMod.anicaModTab));
 		registry.register(anica_battery);	
+		
+		anica_basic_solar = new AnicaBasicSolarItem(AnicaModBlocks.anica_basic_solar, new Item.Properties().group(AnicaMod.anicaModTab));
+		registry.register(anica_basic_solar);	
 		
 		anica_plank = new AnicaPlankItem( AnicaModBlocks.anica_plank, new Item.Properties().group(AnicaMod.anicaModTab));
 		registry.register(anica_plank);

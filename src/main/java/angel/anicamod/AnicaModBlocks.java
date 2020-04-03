@@ -1,6 +1,7 @@
 package angel.anicamod;
 
 import angel.anicamod.blocks.AnicaAcidBlock;
+import angel.anicamod.blocks.AnicaBasicSolar;
 import angel.anicamod.blocks.AnicaBattery;
 import angel.anicamod.blocks.AnicaBlock;
 import angel.anicamod.blocks.AnicaFurnace;
@@ -11,9 +12,11 @@ import angel.anicamod.blocks.AnicaOre;
 import angel.anicamod.blocks.AnicaPlank;
 import angel.anicamod.blocks.AnicaSapling;
 import angel.anicamod.blocks.AnicaCropPepperBlock;
+import angel.anicamod.containers.AnicaBasicSolarContainer;
 import angel.anicamod.containers.AnicaBatteryContainer;
 import angel.anicamod.containers.AnicaFurnaceContainer;
 import angel.anicamod.containers.AnicaGeneratorContainer;
+import angel.anicamod.tileentity.AnicaBasicSolarTileEntity;
 import angel.anicamod.tileentity.AnicaBatteryTileEntity;
 import angel.anicamod.tileentity.AnicaFurnaceTileEntity;
 import angel.anicamod.tileentity.AnicaGeneratorTileEntity;
@@ -50,6 +53,9 @@ public class AnicaModBlocks {
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BATTERY)
 	public static AnicaBattery anica_battery = ModUtil._null();
 	
+	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BASIC_SOLAR)
+	public static AnicaBasicSolar anica_basic_solar = ModUtil._null();
+	
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_PLANK)
 	public static AnicaPlank anica_plank = ModUtil._null();
 
@@ -72,6 +78,9 @@ public class AnicaModBlocks {
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BATTERY_CONTAINER)
 	public static ContainerType<AnicaBatteryContainer> anica_battery_container = ModUtil._null();
 	
+	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BASIC_SOLAR_CONTAINER)
+	public static ContainerType<AnicaBasicSolarContainer> anica_basic_solar_container = ModUtil._null();
+	
 	// Tile entities
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_FURNACE_TILE_ENTITY)
 	public static TileEntityType<?> anica_furnace_tile_entity = ModUtil._null();
@@ -81,6 +90,9 @@ public class AnicaModBlocks {
 	
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BATTERY_TILE_ENTITY)
 	public static TileEntityType<?> anica_battery_tile_entity = ModUtil._null();
+	
+	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BASIC_SOLAR_TILE_ENTITY)
+	public static TileEntityType<?> anica_basic_solar_tile_entity = ModUtil._null();
 	
 	// Crops
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_CROP_PEPPER_BLOCK)
@@ -115,19 +127,28 @@ public class AnicaModBlocks {
 		registry.register(anica_generator_tile_entity); 
 		
 		//
-		// anica_generator
+		// anica_battery
 		//
 		
 		anica_battery_tile_entity  = TileEntityType.Builder.create(AnicaBatteryTileEntity::new, AnicaModBlocks.anica_battery).build(null);
 		//  associate the tile entity type with the blocks that need it 
 		anica_battery_tile_entity.setRegistryName( new ResourceLocation( AnicaMod.MODID, AnicaMod.ANICA_BATTERY) ); 
 		registry.register(anica_battery_tile_entity); 
+
+		//
+		// anica_basic_solar
+		//
+		
+		anica_basic_solar_tile_entity  = TileEntityType.Builder.create(AnicaBasicSolarTileEntity::new, AnicaModBlocks.anica_basic_solar).build(null);
+		//  associate the tile entity type with the blocks that need it 
+		anica_basic_solar_tile_entity.setRegistryName( new ResourceLocation( AnicaMod.MODID, AnicaMod.ANICA_BASIC_SOLAR) ); 
+		registry.register(anica_basic_solar_tile_entity); 
+		
 		
 		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerTiles: Tiles registered anica_generator_tile_entity " + anica_generator_tile_entity.getRegistryName().toString() );
-		
 		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerTiles: Tiles registered anica_furnace_tile_entity " + anica_furnace_tile_entity.toString());
-		
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerTiles: Tiles registered anica_battery_tile_entity " + anica_battery_tile_entity.toString());
+		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerTiles: Tiles registered anica_battery_tile_entity " + anica_battery_tile_entity.toString());	
+		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerTiles: Tiles registered anica_basic_solar_tile_entity " + anica_basic_solar_tile_entity.toString());
 	}
 	
 	public static void registerContainers(IForgeRegistry<ContainerType<?>> registry)
@@ -200,6 +221,28 @@ public class AnicaModBlocks {
 		
 		registry.register(anica_battery_container);
 		
+		// 
+		// anica_basic_solar_container
+		//
+		
+		anica_basic_solar_container = IForgeContainerType.create( (windowId, inv, data) -> 
+		{ 
+			BlockPos pos = data.readBlockPos();
+			
+			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + windowId );
+			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + pos.toString() );
+			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + AnicaMod.proxy.getClientWorld() );
+			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + AnicaMod.proxy.getClientPlayer());
+			
+			return new AnicaBasicSolarContainer(windowId, AnicaMod.proxy.getClientWorld(), pos, inv, AnicaMod.proxy.getClientPlayer());
+		} );
+		// associate the container type with the blocks that need it 
+		anica_basic_solar_container.setRegistryName( new ResourceLocation( AnicaMod.MODID, AnicaMod.ANICA_BASIC_SOLAR )); 
+		
+		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers: anica_basic_solar_container " + anica_basic_solar_container.getRegistryName().toString() );
+		
+		registry.register(anica_basic_solar_container);
+		
 		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers: Containers registered Done!");
 	}
 	
@@ -221,6 +264,9 @@ public class AnicaModBlocks {
 	
 		anica_battery = new AnicaBattery(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0f, 3.0f).lightValue(5).sound(SoundType.METAL));
 		registry.register(anica_battery);	
+		
+		anica_basic_solar = new AnicaBasicSolar(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0f, 3.0f).lightValue(5).sound(SoundType.METAL));
+		registry.register(anica_basic_solar);	
 		
 		anica_crop_pepper_block = new AnicaCropPepperBlock();
 		registry.register(anica_crop_pepper_block);
