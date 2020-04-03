@@ -2,12 +2,14 @@ package angel.anicamod.entities;
 
 import angel.anicamod.AnicaMod;
 import angel.anicamod.AnicaModEntities;
+import angel.anicamod.AnicaModSoundList;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class AnicaMobEntity extends CreatureEntity {
@@ -34,5 +36,11 @@ public class AnicaMobEntity extends CreatureEntity {
     	super.registerAttributes();
     	this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0d);
     	this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.2d);
+    }
+    
+    @Override
+    protected SoundEvent getAmbientSound() {
+    	if (AnicaMobEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMobEntity: getAmbientSound");
+    	return AnicaModSoundList.ANICA_ENTITY_AMBIENT.get();
     }
 }

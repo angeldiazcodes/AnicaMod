@@ -95,8 +95,11 @@ public abstract class AnicaAcid extends FlowingFluid {
 	
 	@Override
 	protected FluidAttributes createAttributes() {
-		return FluidAttributes.builder( new ResourceLocation( AnicaMod.MODID, AnicaMod.ANICA_ACID_STILL_TEXTURE), 
-				new ResourceLocation( AnicaMod.MODID, AnicaMod.ANICA_ACID_FLOW_TEXTURE)).translationKey("block.anicamod.acid").build(this); //not sure about block.anicamod.acid
+		
+		return FluidAttributes.builder(new ResourceLocation(AnicaMod.MODID, "block/anica_acid_still"), 
+				new ResourceLocation(AnicaMod.MODID, "block/anica_acid_flow"))
+				.translationKey("block.anicamod.anica_acid_still")
+				.build(this);
 	}
 	
 	public static class Flowing extends AnicaAcid {

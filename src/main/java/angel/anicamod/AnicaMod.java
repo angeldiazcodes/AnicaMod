@@ -65,7 +65,6 @@ public class AnicaMod {
 	public static final String RAIN_ITEM	 				= "rain_item";
 	public static final String ANICA_PEPPER_ITEM			= "anica_pepper_item";
 	public static final String ANICA_ACID_BUCKET		 	= "anica_acid_bucket";
-	//public static final String ANICA_ACID		 			= "anica_acid";
 	
 	// Blocks
 	public static final String ANICA_BLOCK	 				= "anica_block";
@@ -142,6 +141,7 @@ public class AnicaMod {
         instance = this; 
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        AnicaModSoundList.SOUND.register(modEventBus);
         AnicaPaintingList.PAINTING_TYPES.register(modEventBus);
         
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, AnicaConfig.CLIENT_CONFIG);

@@ -1,0 +1,13 @@
+  
+{
+	"entity.anica_mob_entity": {
+		"category": "entity",
+		"subtitle": "entity.anica_mob_entity.ambient",
+		"sounds": [
+			{
+				"name": "anicamod:entity/entity.anica_mob_entity",
+				"stream": true
+			}
+		]
+	}
+}

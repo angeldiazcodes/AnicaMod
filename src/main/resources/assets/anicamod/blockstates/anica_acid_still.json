@@ -1,5 +1,5 @@
 {
     "variants": {
-        "": { "model": "anicamod:block/anica_acid" }
+        "": { "model": "anicamod:block/anica_acid_still" }
     }
 }
