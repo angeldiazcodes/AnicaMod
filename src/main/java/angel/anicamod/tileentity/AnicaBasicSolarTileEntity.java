@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 import angel.anicamod.AnicaMod;
 import angel.anicamod.AnicaModBlocks;
 import angel.anicamod.containers.AnicaBasicSolarContainer;
+import angel.anicamod.util.helpers.AnicaConfig;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
@@ -25,6 +26,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
@@ -177,8 +180,23 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
             return;
         }
         
-        // Check sun and add power
-
+        if (tickCount > 0) {
+        	tickCount--;
+            if (tickCount <= 0) {
+            	energy.ifPresent(e -> ((AnicaEnergyStorage) e).addEnergy(AnicaConfig.ANICA_GENERATOR_GENERATE.get()));
+            }
+            markDirty();
+        } 
+       
+        
+        if( this.world.canBlockSeeSky(this.getPos().up()) ) // check sun and add power
+		{
+            if (tickCount <= 0) {
+                tickCount = 20;
+                markDirty();
+            }		
+		}
+        
         sendOutPower();
         
         BlockState blockState = world.getBlockState(pos);

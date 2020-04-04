@@ -44,6 +44,7 @@ public class ClientProxy implements IProxy {
         
         RenderTypeLookup.setRenderLayer(AnicaModBlocks.anica_crop_pepper_block, RenderType.getCutout()); // update mappings - getCutout
         RenderTypeLookup.setRenderLayer(AnicaModBlocks.anica_sapling, RenderType.getCutout()); // update mappings - getCutout
+        RenderTypeLookup.setRenderLayer(AnicaModBlocks.anica_basic_solar, RenderType.getCutout()); // update mappings - getCutout
         
         // Add structures
         WorldGen.setupWorldGen();

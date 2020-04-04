@@ -43,7 +43,7 @@ public class AnicaBasicSolarScreen extends ContainerScreen<AnicaBasicSolarContai
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
 		if (AnicaBasicSolarScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarScreen: drawGuiContainerForegroundLayer");
-		 drawString(Minecraft.getInstance().fontRenderer, "Anica Basic Solar ", 10, 10, 0xffffff);
+		 drawString(Minecraft.getInstance().fontRenderer, "Anica Basic Solar Energy: " + container.getEnergy(), 10, 10, 0xffffff); 
     }
 
     @SuppressWarnings("deprecation")
