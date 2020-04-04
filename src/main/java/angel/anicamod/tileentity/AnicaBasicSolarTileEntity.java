@@ -22,6 +22,8 @@ import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.model.BlockPart;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -188,8 +190,6 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
             markDirty();
         } 
        
-        
-        
         if( this.world.canBlockSeeSky(this.getPos().up()) && this.world.isDaytime() ) // check daytime/obstruction and add power
 		{
             if (tickCount <= 0) {
@@ -205,7 +205,10 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
             world.setBlockState(pos, blockState.with(BlockStateProperties.POWERED, tickCount > 0), 3);
         }
 
-
+        // Thinking about a drill:
+        // BlockState junglePlanks = Blocks.BIRCH_PLANKS.getDefaultState();
+        // world.setBlockState(this.getPos().up(), junglePlanks);
+        // world.destroyBlock(this.getPos().up(), true ); // drop the block
 	}
 	
     private void sendOutPower() {
@@ -247,6 +250,6 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
 	}
 	
     private IEnergyStorage createEnergy() {
-        return new AnicaEnergyStorage(100000, 0);
+        return new AnicaEnergyStorage(100000, 0, false);
     }
 }

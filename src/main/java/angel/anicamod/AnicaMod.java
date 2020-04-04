@@ -86,6 +86,10 @@ public class AnicaMod {
 	public static final String ANICA_BASIC_SOLAR_CONTAINER	= "anica_basic_solar_container";
 	public static final String ANICA_BASIC_SOLAR_TILE_ENTITY= "anica_basic_solar_tile_entity";
 
+	public static final String ANICA_BASIC_CABLE			= "anica_basic_cable";
+	public static final String ANICA_BASIC_CABLE_CONTAINER	= "anica_basic_cable_container";
+	public static final String ANICA_BASIC_CABLE_TILE_ENTITY= "anica_basic_cable_tile_entity";
+	
 	public static final String ANICA_CROP_PEPPER_BLOCK	 	= "anica_crop_pepper_block";
 	
 	public static final String ANICA_PLANK				 	= "anica_plank";

@@ -2,6 +2,7 @@ package angel.anicamod;
 
 import angel.anicamod.items.AnicaAcidBucketItem;
 import angel.anicamod.items.AnicaAxe;
+import angel.anicamod.items.AnicaBasicCableItem;
 import angel.anicamod.items.AnicaBasicSolarItem;
 import angel.anicamod.items.AnicaBatteryItem;
 import angel.anicamod.items.AnicaBlockItem;
@@ -25,9 +26,7 @@ import angel.anicamod.items.AnicaSword;
 import angel.anicamod.items.RainItem;
 import angel.anicamod.lists.ArmorMaterialList;
 import angel.anicamod.lists.ToolMaterialList;
-import angel.anicamod.util.helpers.ModUtil;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
@@ -90,6 +89,9 @@ public class AnicaModItems {
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BASIC_SOLAR)
 	public static Item anica_basic_solar;
 	
+	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BASIC_CABLE)
+	public static Item anica_basic_cable;
+	
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_PLANK)
 	public static Item anica_plank;
 
@@ -110,7 +112,6 @@ public class AnicaModItems {
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_PEPPER_ITEM)
 	public static Item anica_pepper_item;
 	
-	@SuppressWarnings("deprecation")
 	public static void register(IForgeRegistry<Item> registry)
 	{
 		
@@ -171,6 +172,9 @@ public class AnicaModItems {
 		
 		anica_basic_solar = new AnicaBasicSolarItem(AnicaModBlocks.anica_basic_solar, new Item.Properties().group(AnicaMod.anicaModTab));
 		registry.register(anica_basic_solar);	
+	
+		anica_basic_cable = new AnicaBasicCableItem(AnicaModBlocks.anica_basic_cable, new Item.Properties().group(AnicaMod.anicaModTab));
+		registry.register(anica_basic_cable);	
 		
 		anica_plank = new AnicaPlankItem( AnicaModBlocks.anica_plank, new Item.Properties().group(AnicaMod.anicaModTab));
 		registry.register(anica_plank);

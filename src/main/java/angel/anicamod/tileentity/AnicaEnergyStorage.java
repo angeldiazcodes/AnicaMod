@@ -8,9 +8,11 @@ import net.minecraftforge.energy.EnergyStorage;
 public class AnicaEnergyStorage extends EnergyStorage implements INBTSerializable<CompoundNBT> {
 
 	private static boolean debug = false;
+	private boolean canRecieve = true;
 	
-    public AnicaEnergyStorage(int capacity, int maxTransfer) {
+    public AnicaEnergyStorage(int capacity, int maxTransfer, boolean canRecieveIn ) {
         super(capacity, maxTransfer);
+        canRecieve = canRecieveIn;
     }
 
     public void setEnergy(int energy) {
@@ -33,7 +35,7 @@ public class AnicaEnergyStorage extends EnergyStorage implements INBTSerializabl
     
     @Override 
     public boolean canReceive() {
-    	return true;
+    	return canRecieve;
     }
     
     

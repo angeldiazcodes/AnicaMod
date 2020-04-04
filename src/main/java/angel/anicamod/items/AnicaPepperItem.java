@@ -4,7 +4,6 @@ import angel.anicamod.AnicaMod;
 import angel.anicamod.AnicaModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
-import net.minecraft.util.ResourceLocation;
 
 public class AnicaPepperItem extends BlockItem {
 

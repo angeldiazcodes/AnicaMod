@@ -92,6 +92,6 @@ public class RainItem extends Item {
 	}
 	
     private AnicaEnergyStorage createEnergy() {
-        return new AnicaEnergyStorage(100000, 0);
+        return new AnicaEnergyStorage(100000, 0, true);
     }
 }

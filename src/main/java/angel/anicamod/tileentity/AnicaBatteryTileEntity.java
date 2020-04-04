@@ -238,6 +238,6 @@ public class AnicaBatteryTileEntity extends TileEntity  implements ITickableTile
 	}
 	
     private IEnergyStorage createEnergy() {
-        return new AnicaEnergyStorage(100000, 0);
+        return new AnicaEnergyStorage(100000, 0, true);
     }
 }

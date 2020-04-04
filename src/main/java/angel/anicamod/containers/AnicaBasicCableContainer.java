@@ -18,7 +18,7 @@ import net.minecraftforge.items.SlotItemHandler;
 import net.minecraft.inventory.container.Slot;
 
 /*
- * AnicaBasicSolarContainer
+ * AnicaBasicCableContainer
  * 
  * Description: This is a class that exists on the client and the server and it makes sure that 
  * changes the user does on the client are communicated properly to the server and the other 
@@ -27,24 +27,14 @@ import net.minecraft.inventory.container.Slot;
  * 
  */
 
-public class AnicaBasicSolarContainer extends AnicaContainer {
+public class AnicaBasicCableContainer extends AnicaContainer {
     
     private static final boolean debug = false;
     
-    public AnicaBasicSolarContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
-        super(windowId, world, pos, playerInventory, player, AnicaModBlocks.anica_basic_solar_container);
-        
-        if (AnicaBasicSolarContainer.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarContainer: Constructor");
+    public AnicaBasicCableContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
+        super(windowId, world, pos, playerInventory, player, AnicaModBlocks.anica_basic_cable_container);
+        if (AnicaBasicCableContainer.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicCableContainer: Constructor");
        
-        tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-        	// net.minecraftforge.items.SlotItemHandler: SlotItemHandler(IItemHandler itemHandler, int index, int xPosition, int yPosition
-            // net.minecraft.inventory.Container: addSlot(Slot slotIn)
-        	addSlot(new SlotItemHandler(h, 0, AC_ITEM_LOC_X, AC_ITEM_LOC_Y)); // sets the position to place the item in the GUI
-        });
-        
-        // layoutPlayerInventorySlots(int leftCol, int topRow) - this happens when opening generator GUI
-        layoutPlayerInventorySlots(AC_INVENTORY_LEFTCOL, AC_INVENTORY_TOPROW);
-        
         trackInt(new IntReferenceHolder() {
             @Override
             public int get() {
@@ -57,21 +47,7 @@ public class AnicaBasicSolarContainer extends AnicaContainer {
             }
         });
     }
-
-    /*
-     * transferStackInSlot(PlayerEntity playerIn, int index)
-     * 
-     * Description: This function is responsible for transfer of items when the player shift-clicks them.
-     * It will be restricted to only support diamonds. 
-     */
-    
-    @Override
-    public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
-        ItemStack itemstack = ItemStack.EMPTY;
-
-        return itemstack;
-    }
-
+   
     public int getEnergy() {
     	return tileEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
     }
