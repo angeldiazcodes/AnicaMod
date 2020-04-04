@@ -189,7 +189,8 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
         } 
        
         
-        if( this.world.canBlockSeeSky(this.getPos().up()) ) // check sun and add power
+        
+        if( this.world.canBlockSeeSky(this.getPos().up()) && this.world.isDaytime() ) // check daytime/obstruction and add power
 		{
             if (tickCount <= 0) {
                 tickCount = 20;
