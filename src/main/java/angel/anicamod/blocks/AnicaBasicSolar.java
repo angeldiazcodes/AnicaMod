@@ -30,7 +30,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 public class AnicaBasicSolar extends Block  {
 	
 	private static boolean debug = false;
-	private static final VoxelShape BOX = VoxelShapes.create(0.0D, 0.0D, 0.0D, 1.0D, 0.75D, 1.0D); // do not know the right shape to use 
+	private static final VoxelShape BOX = VoxelShapes.create(0.0D, 0.0D, 0.0D, 1.0D, 0.75D, 1.0D); // do not know the right shape to use - 6, 6, 6, 10, 10, 10
 	
 	public AnicaBasicSolar(final Properties properties) {			
 		super( properties );	
@@ -49,7 +49,7 @@ public class AnicaBasicSolar extends Block  {
 	{
 		return BOX;
 	}
-
+	
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
 	{

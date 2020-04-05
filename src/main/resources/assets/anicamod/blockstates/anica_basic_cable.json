@@ -1,5 +1,62 @@
 {
-    "variants": {
-        "": { "model": "anicamod:block/anica_basic_cable" }
+  "multipart": [
+    {
+      "apply": {
+        "model": "anicamod:block/anica_basic_cable"
+      }
+    },
+    {
+      "when": {
+        "north": true
+      },
+      "apply": {
+        "model": "anicamod:block/anica_basic_cable_extension"
+      }
+    },
+    {
+      "when": {
+        "east": true
+      },
+      "apply": {
+        "model": "anicamod:block/anica_basic_cable_extension",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": true
+      },
+      "apply": {
+        "model": "anicamod:block/anica_basic_cable_extension",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "west": true
+      },
+      "apply": {
+        "model": "anicamod:block/anica_basic_cable_extension",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "up": true
+      },
+      "apply": {
+        "model": "anicamod:block/anica_basic_cable_extension",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "down": true
+      },
+      "apply": {
+        "model": "anicamod:block/anica_basic_cable_extension",
+        "x": 90
+      }
     }
+  ]
 }
