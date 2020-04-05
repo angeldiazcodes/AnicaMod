@@ -204,11 +204,6 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
         if (blockState.get(BlockStateProperties.POWERED) != tickCount > 0) {
             world.setBlockState(pos, blockState.with(BlockStateProperties.POWERED, tickCount > 0), 3);
         }
-
-        // Thinking about a drill:
-        // BlockState junglePlanks = Blocks.BIRCH_PLANKS.getDefaultState();
-        // world.setBlockState(this.getPos().up(), junglePlanks);
-        // world.destroyBlock(this.getPos().up(), true ); // drop the block
 	}
 	
     private void sendOutPower() {

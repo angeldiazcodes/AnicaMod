@@ -65,6 +65,7 @@ public class AnicaMod {
 	public static final String RAIN_ITEM	 				= "rain_item";
 	public static final String ANICA_PEPPER_ITEM			= "anica_pepper_item";
 	public static final String ANICA_ACID_BUCKET		 	= "anica_acid_bucket";
+	public static final String ANICA_BASIC_DRILL		    = "anica_basic_drill";
 	
 	// Blocks
 	public static final String ANICA_BLOCK	 				= "anica_block";

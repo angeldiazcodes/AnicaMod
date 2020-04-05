@@ -3,6 +3,7 @@ package angel.anicamod;
 import angel.anicamod.items.AnicaAcidBucketItem;
 import angel.anicamod.items.AnicaAxe;
 import angel.anicamod.items.AnicaBasicCableItem;
+import angel.anicamod.items.AnicaBasicDrillItem;
 import angel.anicamod.items.AnicaBasicSolarItem;
 import angel.anicamod.items.AnicaBatteryItem;
 import angel.anicamod.items.AnicaBlockItem;
@@ -69,6 +70,9 @@ public class AnicaModItems {
 	
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_ACID_BUCKET)	
 	public static  Item anica_bucket_item;
+	
+	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BASIC_DRILL)	
+	public static  Item anica_basic_drill;
 	
 	// Blocks
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BLOCK)
@@ -153,6 +157,9 @@ public class AnicaModItems {
 	    
 	    anica_bucket_item = new AnicaAcidBucketItem( AnicaModFluidsList.ANICA_ACID_STILL, new Item.Properties().group(AnicaMod.anicaModTab));
 	    registry.register(anica_bucket_item);
+	    
+	    anica_basic_drill = new AnicaBasicDrillItem();
+	    registry.register(anica_basic_drill);
 	    
 	    // Blocks
 	    anica_block = new AnicaBlockItem( AnicaModBlocks.anica_block, new Item.Properties().group(AnicaMod.anicaModTab));
