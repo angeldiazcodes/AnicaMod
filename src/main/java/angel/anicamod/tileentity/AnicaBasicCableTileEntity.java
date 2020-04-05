@@ -188,7 +188,8 @@ public class AnicaBasicCableTileEntity extends TileEntity  implements ITickableT
     private void sendOutPower() {
         energy.ifPresent(energy -> {
             AtomicInteger capacity = new AtomicInteger(energy.getEnergyStored());
-            if (capacity.get() > 0) {
+            // must have enough energy for each side of the cable
+            if (capacity.get() >= 600) {
                 for (Direction direction : Direction.values()) {
                     TileEntity te = world.getTileEntity(pos.offset(direction));
                     if (te != null) {
@@ -224,6 +225,6 @@ public class AnicaBasicCableTileEntity extends TileEntity  implements ITickableT
 	}
 	
     private IEnergyStorage createEnergy() {
-        return new AnicaEnergyStorage(100000, 0, true);
+        return new AnicaEnergyStorage(600, 0, true);
     }
 }
