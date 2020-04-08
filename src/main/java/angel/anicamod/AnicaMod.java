@@ -245,6 +245,7 @@ public class AnicaMod {
 	    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:registerPotion" );
 	    	AnicaModPotionList.registerPotion( event.getRegistry() );
 		}
+		
 	    // nothing to do here - already done
 	    @SubscribeEvent
 	    public static void registerItems(final RegistryEvent.Register<Item> event) {

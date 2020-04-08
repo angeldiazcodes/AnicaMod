@@ -6,6 +6,7 @@ import angel.anicamod.AnicaMod;
 import angel.anicamod.lists.ToolMaterialList;
 import angel.anicamod.tileentity.AnicaEnergyStorage;
 import angel.anicamod.util.helpers.KeyboardHelper;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -29,7 +30,7 @@ public class AnicaBasicDrillItem extends Item {
 	
     public AnicaEnergyStorage energy = null;
 	
-    private static boolean debug = true;
+    private static boolean debug = false;
     
 	public AnicaBasicDrillItem() {
 		super(new Properties().group(AnicaMod.anicaModTab).maxStackSize(1) ); // 
@@ -37,6 +38,7 @@ public class AnicaBasicDrillItem extends Item {
 		setRegistryName(new ResourceLocation(AnicaMod.MODID, AnicaMod.ANICA_BASIC_DRILL));
 		energy = createEnergy();
 	}
+	
 	
 	/*
 	 * Called before a block is broken. Return true to prevent default block harvesting. Note: In SMP, this is called on both client and server sides!
@@ -46,6 +48,16 @@ public class AnicaBasicDrillItem extends Item {
 	public boolean onBlockStartBreak(ItemStack itemstack, BlockPos pos, PlayerEntity player) {
 		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onBlockStartBreak ");
 		return super.onBlockStartBreak(itemstack, pos, player);
+	}
+	
+	/*
+	 * Called after the block is broken or just about to break (left click)
+	 */
+	
+	@Override
+	public boolean canPlayerBreakBlockWhileHolding(BlockState state, World worldIn, BlockPos pos, PlayerEntity player) {
+		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: canPlayerBreakBlockWhileHolding ");
+		return super.canPlayerBreakBlockWhileHolding(state, worldIn, pos, player);
 	}
 	
 	/*
@@ -102,6 +114,8 @@ public class AnicaBasicDrillItem extends Item {
 		
 		return ActionResultType.SUCCESS;
 	}
+
+	
 	
 	/*
 	 * Called when the player Left Clicks (attacks) an entity. Processed before damage is done, if 
@@ -111,8 +125,18 @@ public class AnicaBasicDrillItem extends Item {
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity) {
 		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onLeftClickEntity " + entity.toString());
-		// not getting this called - do not know why
+		// this gets called when hitting a living entity (not block)
 		return super.onLeftClickEntity(stack, player, entity);
+	}
+	
+	/*
+	 * Called when a living entity is hit (not a block)
+	 */
+	
+	@Override
+	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: hitEntity ");
+		return super.hitEntity(stack, target, attacker);
 	}
 	
 	/*
@@ -121,10 +145,24 @@ public class AnicaBasicDrillItem extends Item {
 	
 	@Override
 	public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
-		// if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing ");
+		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing ");
 		
 		World world = entity.getEntityWorld();
-		BlockPos pos = entity.getPosition();
+		
+		int x = entity.chunkCoordX;
+		int y = entity.chunkCoordY;
+		int z = entity.chunkCoordZ;
+		
+		//if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing ItemStack " + stack.toString());
+		
+		BlockPos pos = new BlockPos(x,y,z);
+		
+		//if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing pos " + world.getBlockState(pos).toString());
+	     
+		
+		world.destroyBlock(pos, true); // drop the block
+		world.setBlockState(pos, Blocks.AIR.getDefaultState());
+		
 		/*
 		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing pos " + world.getBlockState(pos).toString());
 		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing pos up " + world.getBlockState(pos.up()).toString());
