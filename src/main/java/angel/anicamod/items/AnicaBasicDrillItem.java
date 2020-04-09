@@ -107,15 +107,17 @@ public class AnicaBasicDrillItem extends Item {
 	public ActionResultType onItemUse(ItemUseContext context) {
 		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onItemUse ");
 		
+	    // Not here: We this in the event handler not here, but lets keep this code for a while as I ponder
+		/*
 		BlockPos pos = context.getPos();
 		World world = context.getWorld();   
 		world.destroyBlock(pos, true); // drop the block
 		world.setBlockState(pos, Blocks.AIR.getDefaultState());
 		
 		return ActionResultType.SUCCESS;
+		*/
+		return onItemUse(context);
 	}
-
-	
 	
 	/*
 	 * Called when the player Left Clicks (attacks) an entity. Processed before damage is done, if 
@@ -147,36 +149,7 @@ public class AnicaBasicDrillItem extends Item {
 	public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
 		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing ");
 		
-		World world = entity.getEntityWorld();
-		
-		int x = entity.chunkCoordX;
-		int y = entity.chunkCoordY;
-		int z = entity.chunkCoordZ;
-		
-		//if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing ItemStack " + stack.toString());
-		
-		BlockPos pos = new BlockPos(x,y,z);
-		
-		//if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing pos " + world.getBlockState(pos).toString());
-	     
-		
-		world.destroyBlock(pos, true); // drop the block
-		world.setBlockState(pos, Blocks.AIR.getDefaultState());
-		
-		/*
-		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing pos " + world.getBlockState(pos).toString());
-		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing pos up " + world.getBlockState(pos.up()).toString());
-		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing pos down " + world.getBlockState(pos.down()).toString());
-		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing pos north " + world.getBlockState(pos.north()).toString());
-		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing pos south " + world.getBlockState(pos.south()).toString());
-		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing entity  " + entity.getBlockState().toString());
-		*/
-		
-		
-		//entity.getPosition().
-		//world.destroyBlock(pos, true);
-		
-        // Thinking about a drill:
+        // Not here: We this in the event handler not here, but lets keep this code for a while as I ponder
         // BlockState junglePlanks = Blocks.BIRCH_PLANKS.getDefaultState();
         // world.setBlockState(this.getPos().up(), junglePlanks);
         // world.destroyBlock(this.getPos().up(), true ); // drop the block
