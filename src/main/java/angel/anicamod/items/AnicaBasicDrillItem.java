@@ -79,7 +79,7 @@ public class AnicaBasicDrillItem extends Item {
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift())
 		{
-			tooltip.add( new StringTextComponent( "\u00A7d" + "Anica's very special custom rain item! Feel the hatred of 10,000 years!" + "\u00A77"));
+			tooltip.add( new StringTextComponent( "\u00A7d" + "Anica's very special custom drill! Feel the hatred of 10,000 years!" + "\u00A77"));
 		} else
 		{
 			if ( stack.getTag() == null ) { stack.setTag( new CompoundNBT() ); stack.getTag().putInt("egy", 0 ); }
@@ -99,15 +99,16 @@ public class AnicaBasicDrillItem extends Item {
 		
 	}
 	
+	
 	/*
-	 * Called when this item is used when targetting a Block (right click)
+	 * Called when this item is used when targeting a Block (right click)
 	 */
 	
 	@Override
 	public ActionResultType onItemUse(ItemUseContext context) {
 		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onItemUse ");
 		
-	    // Not here: We this in the event handler not here, but lets keep this code for a while as I ponder
+	    // Not here: We now do this in the event handler, but lets keep this code for a while as I ponder/debug
 		/*
 		BlockPos pos = context.getPos();
 		World world = context.getWorld();   
@@ -116,7 +117,7 @@ public class AnicaBasicDrillItem extends Item {
 		
 		return ActionResultType.SUCCESS;
 		*/
-		return onItemUse(context);
+		return super.onItemUse(context);
 	}
 	
 	/*

@@ -65,7 +65,7 @@ public class AnicaBatteryTileEntity extends TileEntity  implements ITickableTile
     
     private int tickCount = 0;
     
-    private static boolean debug = true;
+    private static boolean debug = false;
     
 	public AnicaBatteryTileEntity(final TileEntityType<?> tileEntityTypeIn) {
 		super(tileEntityTypeIn);
@@ -194,7 +194,7 @@ public class AnicaBatteryTileEntity extends TileEntity  implements ITickableTile
         	
         	if (inputStack != null )
         	{
-        		if ( inputStack.getItem().toString().compareTo( AnicaMod.RAIN_ITEM ) == 0 )
+        		if ( inputStack.getItem().toString().compareTo( AnicaMod.RAIN_ITEM ) == 0 || inputStack.getItem().toString().compareTo( AnicaMod.ANICA_BASIC_DRILL ) == 0 )
         			{
         			
         	        energy.ifPresent(energy -> {
@@ -204,16 +204,16 @@ public class AnicaBatteryTileEntity extends TileEntity  implements ITickableTile
             				int stackCount = inputStack.getCount();
             				String stackDisplayName = inputStack.getDisplayName().toString();
             			
-            				if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItem:inventoryTick: stackCount " + stackCount);
-            				if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItem:inventoryTick: stackDisplayName " + stackDisplayName);
+            				if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity:inventoryTick: stackCount " + stackCount);
+            				if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity:inventoryTick: stackDisplayName " + stackDisplayName);
             					
             				if ( inputStack.getTag() == null ) { inputStack.setTag( new CompoundNBT() ); inputStack.getTag().putInt("egy", 0 ); }
             			
-            				if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItem:inventoryTick: before getInt " + inputStack.getTag().getInt("egy"));
+            				if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity:inventoryTick: before getInt " + inputStack.getTag().getInt("egy"));
             		
             				inputStack.getTag().putInt("egy", inputStack.getTag().getInt("egy")+ 10 );
             			
-            				if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItem:inventoryTick: after getInt " + inputStack.getTag().getInt("egy"));
+            				if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity:inventoryTick: after getInt " + inputStack.getTag().getInt("egy"));
            
             				h.setStackInSlot(0, inputStack );
             				anicaBatteryContainer.putStackInSlot(0, inputStack );

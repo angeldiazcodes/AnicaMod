@@ -2,12 +2,14 @@ package angel.anicamod.events;
 
 import angel.anicamod.AnicaMod;
 import angel.anicamod.AnicaModItems;
+import angel.anicamod.gui.RainItemGUI;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent.LoggedInEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -43,8 +45,34 @@ public class EventHandler {
 		
 		if ( item.equals( AnicaModItems.anica_basic_drill) ) {
 			if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: anica_basic_drill in hand");
-			// supper fast - do not know valid inputs
-			event.setNewSpeed(1000);
+			
+			if ( itemStack.getTag() == null ) { itemStack.setTag( new CompoundNBT() ); itemStack.getTag().putInt("egy", 0 ); }
+			
+			int currentEnergy = itemStack.getTag().getInt("egy");
+			int newEnergy = currentEnergy - 100;
+			
+			if ( newEnergy > 0 )
+			{
+				if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: Energy before " + itemStack.getTag().getInt("egy"));
+				if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: player origional speed " + event.getOriginalSpeed() );
+				if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: player new speed speed " + event.getNewSpeed() );
+				
+				itemStack.getTag().putInt("egy", newEnergy );
+				event.setNewSpeed(100); // supper fast - do not know valid inputs
+				
+				if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: Energy after " + itemStack.getTag().getInt("egy"));
+				if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: player origional speed " + event.getOriginalSpeed() );
+				if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: player new speed speed " + event.getNewSpeed() );
+			
+			}
+			else
+			{
+				itemStack.getTag().putInt("egy", 0 );
+				event.setNewSpeed(0); // supper slow - do not know valid inputs
+			}
+			
+			playerEntity.setItemStackToSlot(EquipmentSlotType.MAINHAND, itemStack);
+			
 		}
 	}
 	
