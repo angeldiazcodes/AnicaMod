@@ -1,0 +1,21 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	
+	"pattern":
+	[
+		"GDG",
+		"IBI",
+		"SSS"
+	],
+	
+	"key":
+	{
+		"S": { "item": "minecraft:cobblestone"},
+		"B": { "item": "anicamod:anica_generator"},
+		"I": { "item": "minecraft:iron_ingot"},
+		"D": { "item": "minecraft:diamond"},
+		"G": { "item": "minecraft:glass"}
+	},
+	
+	"result": { "item": "anicamod:anica_basic_solar"}
+}

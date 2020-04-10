@@ -4,14 +4,15 @@
 	"pattern":
 	[
 		"###",
-		"#B#",
+		"IBI",
 		"###"
 	],
 	
 	"key":
 	{
 		"#": { "item": "anicamod:anica_item"},
-		"B": { "item": "anicamod:anica_block"}
+		"B": { "item": "anicamod:anica_block"},
+		"I": { "item": "minecraft:iron_ingot"}
 	},
 	
 	"result": { "item": "anicamod:anica_battery"}

@@ -1,0 +1,25 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	
+	"pattern":
+	[
+		"GDG",
+		"WIL",
+		"GAG"
+	],
+	
+	"key":
+	{
+		"I": { "item": "anicamod:anica_item"},
+		"W": { "item": "minecraft:water_bucket"},
+		"L": { "item": "minecraft:lava_bucket"},
+		"D": { "item": "minecraft:diamond"},
+		"G": { "item": "minecraft:glass"},
+		"A": { "item": "anicamod:anica_acid_bucket"}
+	},
+	
+	"result": 
+	{ 
+		"item": "anicamod:rain_item"
+	}
+}

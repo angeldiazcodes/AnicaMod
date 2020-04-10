@@ -1,0 +1,22 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	
+	"pattern":
+	[
+		"   ",
+		"GIG",
+		"   "
+	],
+	
+	"key":
+	{
+		"I": { "item": "anicamod:anica_item"},
+		"G": { "item": "minecraft:glass"}
+	},
+	
+	"result": 
+	{ 
+		"item": "anicamod:anica_basic_cable",
+		"count": 8
+	}
+}

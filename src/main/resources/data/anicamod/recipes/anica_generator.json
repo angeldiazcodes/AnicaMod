@@ -1,0 +1,20 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	
+	"pattern":
+	[
+		"#D#",
+		"IBI",
+		"###"
+	],
+	
+	"key":
+	{
+		"#": { "item": "anicamod:anica_item"},
+		"B": { "item": "anicamod:anica_battery"},
+		"I": { "item": "minecraft:iron_ingot"},
+		"D": { "item": "minecraft:diamond"}
+	},
+	
+	"result": { "item": "anicamod:anica_generator"}
+}
