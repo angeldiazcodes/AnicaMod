@@ -1,0 +1,17 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	
+	"pattern":
+	[
+		"###",
+		"###",
+		"###"
+	],
+	
+	"key":
+	{
+		"#": { "item": "anicamod:anica_item"}
+	},
+	
+	"result": { "item": "anicamod:anica_block"}
+}
