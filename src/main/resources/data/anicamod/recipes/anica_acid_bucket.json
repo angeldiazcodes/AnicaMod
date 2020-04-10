@@ -3,19 +3,19 @@
 	
 	"pattern":
 	[
-		"BS ",
+		"WM ",
 		"   ",
 		"   "
 	],
 	
 	"key":
 	{
-		"S": { "item": "minecraft:milk_bucket"},
-		"B": { "item": "anicamod:anica_acid_bucket"}
+		"M": { "item": "minecraft:milk_bucket"},
+		"W": { "item": "minecraft:water_bucket"}
 	},
 	
 	"result": 
 	{ 
-		"item": "minecraft:slime_ball"
+		"item": "anicamod:anica_acid_bucket"
 	}
 }

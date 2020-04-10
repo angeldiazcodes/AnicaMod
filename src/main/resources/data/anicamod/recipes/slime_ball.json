@@ -1,0 +1,21 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	
+	"pattern":
+	[
+		"BS ",
+		"   ",
+		"   "
+	],
+	
+	"key":
+	{
+		"S": { "item": "minecraft:milk_bucket"},
+		"B": { "item": "anicamod:anica_acid_bucket"}
+	},
+	
+	"result": 
+	{ 
+		"item": "minecraft:slime_ball"
+	}
+}
