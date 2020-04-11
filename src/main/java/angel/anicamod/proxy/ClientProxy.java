@@ -1,6 +1,5 @@
 package angel.anicamod.proxy;
 
-import angel.anicamod.AnicaDimensionList;
 import angel.anicamod.AnicaMod;
 import angel.anicamod.AnicaModBlocks;
 import angel.anicamod.AnicaModPotionList;
@@ -9,6 +8,7 @@ import angel.anicamod.gui.AnicaBasicSolarScreen;
 import angel.anicamod.gui.AnicaBatteryScreen;
 import angel.anicamod.gui.AnicaFurnaceScreen;
 import angel.anicamod.gui.AnicaGeneratorScreen;
+import angel.anicamod.network.Networking;
 import angel.anicamod.world.OreGeneration;
 import angel.anicamod.world.WorldGen;
 import net.minecraft.client.Minecraft;
@@ -19,10 +19,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod.EventBusSubscriber(Dist.CLIENT)
 public class ClientProxy implements IProxy {
@@ -45,6 +42,9 @@ public class ClientProxy implements IProxy {
         
         // register event handler class (a different style)
         MinecraftForge.EVENT_BUS.register(EventHandler.INSTANCE);
+        
+        // set up client/server networking packets
+        Networking.registerMessages();
         		
         RenderTypeLookup.setRenderLayer(AnicaModBlocks.anica_crop_pepper_block, RenderType.getCutout()); // update mappings - getCutout
         RenderTypeLookup.setRenderLayer(AnicaModBlocks.anica_sapling, RenderType.getCutout()); // update mappings - getCutout

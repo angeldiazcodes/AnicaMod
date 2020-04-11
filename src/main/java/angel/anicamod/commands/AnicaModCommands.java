@@ -14,6 +14,7 @@ public class AnicaModCommands {
                 Commands.literal(AnicaMod.MODID)
                         .then(AnicaCommand.register(dispatcher))
                         .then(AnicaDimensionTeleportCommand.register(dispatcher))
+                        .then(AnicaSpawnerCommand.register(dispatcher))
         );
 
         dispatcher.register(Commands.literal("tut").redirect(cmdTut));

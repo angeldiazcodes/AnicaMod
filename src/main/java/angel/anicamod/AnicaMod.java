@@ -99,12 +99,13 @@ public class AnicaMod {
 	public static final String ANICA_LEAVES					= "anica_leaves";
 	public static final String ANICA_SAPLING				= "anica_sapling";
 
-	// Textures
+	// Textures & GUI
 	public static final String ANICA_FURNACE_GUI 			= "textures/gui/anica_furnace_gui.png";
 	public static final String ANICA_GENERATOR_GUI 			= "textures/gui/anica_generator_gui.png";
 	public static final String ANICA_BATTERY_GUI 			= "textures/gui/anica_battery_gui.png";
 	public static final String ANICA_BASIC_SOLAR_GUI 		= "textures/gui/anica_basic_solar_gui.png";
 	public static final String ANICA_RAIN_ITEM_GUI			= "textures/gui/anica_rain_item_gui.png";
+	public static final String SPAWNER_GUI					= "textures/gui/spawner_gui.png";
 	public static final String ANICA_MOB_ENTITY_TEXTURE	    = "textures/entity/anica_mob_entity.png";
 	public static final String ANICA_ACID_STILL_TEXTURE  	= "block/anica_acid_still";
 	public static final String ANICA_ACID_FLOW_TEXTURE  	= "block/anica_acid_flow";
@@ -141,6 +142,9 @@ public class AnicaMod {
 	// Dimensions
 	public static final String ANICA_DIM					= "anica_dim";
 	public static final ResourceLocation ANICA_DIM_TYPE 	= new ResourceLocation(MODID, ANICA_DIM);
+	
+	// Networking 
+	public static final String ANICA_SIMPLE_NET				= "anica_simple_net";
 	
 	public static final Logger logger = LogManager.getLogger(MODID);
 	public static final String logStub = "[*****************]:";
