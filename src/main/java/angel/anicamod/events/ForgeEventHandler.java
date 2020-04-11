@@ -1,25 +1,30 @@
 package angel.anicamod.events;
 
+import angel.anicamod.AnicaDimensionList;
 import angel.anicamod.AnicaMod;
 import angel.anicamod.AnicaModBlocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
+import net.minecraft.world.dimension.DimensionType;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.ModDimension;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
+import net.minecraftforge.event.world.RegisterDimensionsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 @Mod.EventBusSubscriber(modid = AnicaMod.MODID, bus = Bus.FORGE) // comment this if it get laggy
-public class AnicaJumpEvent {
+public class ForgeEventHandler {
 	
 	private static boolean debug = true;
 	 
 	@SubscribeEvent
 	public static void onLivingJumpEvent(LivingJumpEvent event) {
 		/*
-		if (AnicaJumpEvent.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaJumpEvent: anicaJumpEvent ");
+		if (ForgeEventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaJumpEvent: anicaJumpEvent ");
 		
 		LivingEntity livingEntity = event.getEntityLiving();
 		World world = livingEntity.getEntityWorld();
@@ -28,6 +33,15 @@ public class AnicaJumpEvent {
 		livingEntity.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 5000, 255));
 		livingEntity.setGlowing(true);
 		*/
+	}
+	
+	@SubscribeEvent
+	public static void registerDimensions(final RegisterDimensionsEvent event) {
+		if (ForgeEventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerDimensions: Dimensions Registered! ");
+		
+		if (DimensionType.byName(AnicaMod.ANICA_DIM_TYPE) == null) {	
+			DimensionManager.registerDimension(AnicaMod.ANICA_DIM_TYPE, AnicaDimensionList.ANICA_DIM.get(), null, true);
+		}
 	}
 	 
 }

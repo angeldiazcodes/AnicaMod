@@ -1,5 +1,6 @@
 package angel.anicamod.proxy;
 
+import angel.anicamod.AnicaDimensionList;
 import angel.anicamod.AnicaMod;
 import angel.anicamod.AnicaModBlocks;
 import angel.anicamod.AnicaModPotionList;
@@ -42,6 +43,7 @@ public class ClientProxy implements IProxy {
         ScreenManager.registerFactory(AnicaModBlocks.anica_battery_container, AnicaBatteryScreen::new);
         ScreenManager.registerFactory(AnicaModBlocks.anica_basic_solar_container, AnicaBasicSolarScreen::new);
         
+        // register event handler class (a different style)
         MinecraftForge.EVENT_BUS.register(EventHandler.INSTANCE);
         		
         RenderTypeLookup.setRenderLayer(AnicaModBlocks.anica_crop_pepper_block, RenderType.getCutout()); // update mappings - getCutout
@@ -49,9 +51,8 @@ public class ClientProxy implements IProxy {
         RenderTypeLookup.setRenderLayer(AnicaModBlocks.anica_basic_solar, RenderType.getCutout()); // update mappings - getCutout
         RenderTypeLookup.setRenderLayer(AnicaModBlocks.anica_basic_cable, RenderType.getCutout()); // update mappings - getCutout
         
-        // Add structures
+        // Add structures 
         WorldGen.setupWorldGen();
-        
 	}
 
 	@Override

@@ -139,6 +139,7 @@ public class AnicaMod {
 	
 	// Dimensions
 	public static final String ANICA_DIM					= "anica_dim";
+	public static final ResourceLocation ANICA_DIM_TYPE 	= new ResourceLocation(MODID, ANICA_DIM);
 	
 	public static final Logger logger = LogManager.getLogger(MODID);
 	public static final String logStub = "[*****************]:";
