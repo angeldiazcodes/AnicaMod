@@ -137,6 +137,9 @@ public class AnicaMod {
 	// Paintings
 	public static final String ANICA_MOD_PAINTING			= "anica_painting";
 	
+	// Dimensions
+	public static final String ANICA_DIM					= "anica_dim";
+	
 	public static final Logger logger = LogManager.getLogger(MODID);
 	public static final String logStub = "[*****************]:";
 	public static boolean debug = true;
@@ -153,6 +156,7 @@ public class AnicaMod {
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         AnicaModSoundList.SOUND.register(modEventBus);
         AnicaPaintingList.PAINTING_TYPES.register(modEventBus);
+        AnicaDimensionList.MOD_DIMENSIONS.register(modEventBus);
         
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, AnicaConfig.CLIENT_CONFIG);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, AnicaConfig.COMMON_CONFIG);
