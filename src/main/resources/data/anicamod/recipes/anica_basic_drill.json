@@ -1,0 +1,20 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	
+	"pattern":
+	[
+		"SG ",
+		"SBD",
+		"SG "
+	],
+	
+	"key":
+	{
+		"S": { "item": "minecraft:cobblestone"},
+		"B": { "item": "anicamod:anica_battery"},
+		"D": { "item": "minecraft:diamond"},
+		"G": { "item": "minecraft:glass"}
+	},
+	
+	"result": { "item": "anicamod:anica_basic_drill"}
+}

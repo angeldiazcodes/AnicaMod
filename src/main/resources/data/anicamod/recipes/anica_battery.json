@@ -11,7 +11,7 @@
 	"key":
 	{
 		"#": { "item": "anicamod:anica_item"},
-		"B": { "item": "anicamod:anica_block"},
+		"B": { "item": "anicamod:anica_furnace"},
 		"I": { "item": "minecraft:iron_ingot"}
 	},
 	
