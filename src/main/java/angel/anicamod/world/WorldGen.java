@@ -2,7 +2,6 @@ package angel.anicamod.world;
 
 import angel.anicamod.AnicaMod;
 import angel.anicamod.AnicaModStrucutresList;
-import angel.anicamod.world.structures.StructureRegistry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
@@ -32,7 +31,6 @@ public class WorldGen {
             	if (WorldGen.debug) AnicaMod.logger.info(AnicaMod.logStub + "setupWorldGen: " + biome.getDisplayName().getString());
    
                 addSurfaceStructure(biome, AnicaModStrucutresList.ANICA_CABIN);
-                //addSurfaceStructure(biome, StructureRegistry.LITTLE_HUT);
                 
 	            // Use categories to allow compatibility with biome mods such as Biomes O' Plenty.
 	            if (biome.getCategory() == Biome.Category.PLAINS || biome.getCategory() == Biome.Category.FOREST) {

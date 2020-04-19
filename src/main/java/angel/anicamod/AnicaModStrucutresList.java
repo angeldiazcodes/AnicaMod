@@ -10,7 +10,10 @@ import net.minecraftforge.registries.ObjectHolder;
 @ObjectHolder(AnicaMod.MODID)
 public class AnicaModStrucutresList {	
 		
+		// /give @a mincraft:structure_block (command to obtain structure block)
+		// https://www.digminecraft.com/getting_started/structure_block_save_mode.php
 	    // Structures - https://github.com/stal111/Valhelsia-Structures
+		// be sure to save as anicamod:strucrurename - file will be placed in generated/anicamod/structures/struturename.nbt
 		public static final Structure<NoFeatureConfig> ANICA_CABIN = create(AnicaMod.ANICA_CABIN, new AnicaCabinStrucutre(NoFeatureConfig::deserialize));
 	    
 		private static boolean debug = false;

@@ -12,7 +12,6 @@ import angel.anicamod.AnicaModStrucutresList;
 import angel.anicamod.AnicaModStrucutresPiecesList;
 import angel.anicamod.network.Networking;
 import angel.anicamod.network.PacketOpenGUI;
-import angel.anicamod.world.structures.StructureRegistry;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.entity.player.ServerPlayerEntity;

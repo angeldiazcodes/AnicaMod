@@ -53,6 +53,7 @@ public class AnicaCabinStrucutre extends Structure<NoFeatureConfig> {
 
 	@Override
 	public IStartFactory getStartFactory() {
+		if (AnicaCabinStrucutre.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaCabinStrucutre:getStartFactory");
 		return Start::new;
 	}
 
