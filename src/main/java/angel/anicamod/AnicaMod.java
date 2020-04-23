@@ -126,7 +126,6 @@ public class AnicaMod {
 	
 	// Structures
 	public static final String ANICA_CABIN		 			= "anica_cabin";	
-	public static final String LIGHT			 			= "light";
 	
 	// Fluids
 	public static final String ANICA_ACID_STILL		  		= "anica_acid_still";
