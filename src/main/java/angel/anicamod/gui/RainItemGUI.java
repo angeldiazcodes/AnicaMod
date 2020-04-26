@@ -3,6 +3,7 @@ package angel.anicamod.gui;
 import com.mojang.blaze3d.platform.GlStateManager;
 
 import angel.anicamod.AnicaMod;
+import angel.anicamod.items.RainItem;
 import net.minecraft.client.gui.IGuiEventListener;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.button.Button;
@@ -35,20 +36,22 @@ public class RainItemGUI extends Screen {
 	
 	public RainItemGUI(ITextComponent titleIn) {
 		super(titleIn);
+		if (RainItemGUI.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItemGUI: Constuctor ");
 	}
  
 	public RainItemGUI(ITextComponent titleIn, World worldIn, PlayerEntity playerIn, Hand handIn) {
 		super(titleIn);
+		if (RainItemGUI.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItemGUI: Constuctor long");
 		this.playerIn = playerIn;
 		this.handIn = handIn;
-		this.stack = playerIn.getHeldItem(handIn);
+		if (playerIn != null ) this.stack = playerIn.getHeldItem(handIn);
 		this.worldIn = worldIn;
-		this.worldInfo = worldIn.getWorldInfo();
+		if ( worldIn != null) this.worldInfo = worldIn.getWorldInfo();
 	}
 	
 	@Override
 	public void render(int p_render_1_, int p_render_2_, float p_render_3_) {
-        
+		if (RainItemGUI.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItemGUI: render ");
 		this.minecraft.getTextureManager().bindTexture(GUI);
         int relX = (this.width - this.xSize) / 2;
         int relY = (this.height - this.ySize) / 2;
@@ -80,6 +83,9 @@ public class RainItemGUI extends Screen {
 	protected void init() {
 		buttons.clear();
 
+		if (RainItemGUI.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItemGUI: init ");
+		if ( worldInfo != null )
+		{
 		rainOn  = new Button((this.width/2) - buttonWidth - 5 , (this.height/2) + 20 , buttonWidth, buttonHeight, "Rain On", 
 				(button) -> { 
 					
@@ -134,7 +140,7 @@ public class RainItemGUI extends Screen {
 		
 		addButton(rainOn);
 		addButton(rainOff);
-
+		}
 		super.init();
 	}
 	

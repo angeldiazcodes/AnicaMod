@@ -57,7 +57,7 @@ public class WorldGen {
 	        biome.addStructure(structure.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 	        biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, 
 	        		structure.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure( 
-	        		new AtSurfaceWithExtraConfig( 1000, 1f, 1 ))));
+	        		new AtSurfaceWithExtraConfig( 1, 1f, 1 )))); // 1000 is a lot
 	    }
 
 	    private static void addUndergroundStructure(Biome biome, Structure<NoFeatureConfig> structure) {

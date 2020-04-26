@@ -24,19 +24,22 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraft.util.ActionResultType;
 
 public class RainItem extends Item {
 	
     public AnicaEnergyStorage energy = null;
-	
     private static boolean debug = true;
     
 	public RainItem() {
 		super(new Properties().group(AnicaMod.anicaModTab).maxStackSize(1) );
+		if (RainItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItem: Constuctor ");
 		setRegistryName(new ResourceLocation(AnicaMod.MODID, AnicaMod.RAIN_ITEM));
 		energy = createEnergy();
 	}
@@ -51,6 +54,7 @@ public class RainItem extends Item {
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		// Tool Tip
 		
+		if (RainItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItem: addInformation ");
 		if (KeyboardHelper.isHoldingShift())
 		{
 			tooltip.add( new StringTextComponent( "\u00A7d" + "Anica's very special custom rain item! Feel the hatred of 10,000 years!" + "\u00A77"));
@@ -69,15 +73,19 @@ public class RainItem extends Item {
 		
 	}
 	
+	// https://mcforge.readthedocs.io/en/latest/concepts/sides/ - should we use network packets or a texture???
+	@OnlyIn(Dist.CLIENT)
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-
 		if ( !worldIn.isRemote ) 
 		{
+			if (RainItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItem: onItemRightClick !worldIn.isRemote");
 			playerIn.sendMessage(new StringTextComponent( "Anica's Rain Item"));
 		}
 		else
 		{
+			if (RainItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItem: onItemRightClick worldIn.isRemote");
+			
 			Minecraft.getInstance().displayGuiScreen( new RainItemGUI( new StringTextComponent( "Anica's Rain Item" ), worldIn, playerIn , handIn ));
 			
 			//ItemStack stack = playerIn.getHeldItem(handIn);
@@ -86,9 +94,9 @@ public class RainItem extends Item {
 
 		}
 		
-		//return new ActionResult<ItemStack>( ActionResultType.SUCCESS, playerIn.getHeldItem(handIn) );
+		return new ActionResult<ItemStack>( ActionResultType.SUCCESS, playerIn.getHeldItem(handIn) );
 		
-		return super.onItemRightClick(worldIn, playerIn, handIn);
+		//return super.onItemRightClick(worldIn, playerIn, handIn);
 	}
 	
     private AnicaEnergyStorage createEnergy() {

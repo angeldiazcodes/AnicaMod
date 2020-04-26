@@ -1,7 +1,9 @@
 package angel.anicamod.proxy;
 
 import angel.anicamod.AnicaMod;
+import angel.anicamod.AnicaModPotionList;
 import angel.anicamod.world.OreGeneration;
+import angel.anicamod.world.WorldGen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
@@ -11,7 +13,12 @@ public class ServerProxy implements IProxy {
 	public void init()
 	{
 		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "ServerProxy:Init");
+		
+		// Ore generation
         OreGeneration.setupOrgeGeneration();
+        
+        // Add structures 
+        WorldGen.setupWorldGen();
 	}
 
 	@Override

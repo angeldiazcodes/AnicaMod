@@ -1,4 +1,19 @@
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/jre
 ./gradelw runClient
 find . -name '.DS_Store' -type f -delete 
+sudo spctl --master-disable
 
+
+ssh root@216.194.165.205 / 1qawsedrf1
+java -jar forge-x.xx.x-installer.jar --installServer
+java -Xmx1024M -Xms1024M -jar minecraft_server.1.15.2.jar nogui
+java -Xmx1024M -Xms1024M -jar forge-1.15.2-31.1.49.jar nogui
+https://minecraft.gamepedia.com/Tutorials/Setting_up_a_Minecraft_Forge_server
+
+https://linuxize.com/post/how-to-use-linux-screen/
+screen
+Detach from Linux Screen Session Ctrl+a d
+Reattach to a Linux Screen:
+screen -r
+screen -ls
+screen -r 10835

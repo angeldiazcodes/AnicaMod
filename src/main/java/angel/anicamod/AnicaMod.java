@@ -1,5 +1,7 @@
 package angel.anicamod;
 
+// ./gradlew build to create .jar - its in build\libs
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

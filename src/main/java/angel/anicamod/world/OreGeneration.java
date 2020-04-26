@@ -18,7 +18,7 @@ public class OreGeneration {
 	{
 		for (Biome biome : ForgeRegistries.BIOMES)
 		{
-			CountRangeConfig anica_ore_placement = new CountRangeConfig(1000, 20, 20, 100); // spawn between 20 and 100 ; 1000 is frequency - its a lot right now
+			CountRangeConfig anica_ore_placement = new CountRangeConfig(50, 20, 20, 100); // spawn between 20 and 100 ; 1000 is frequency - its a lot right now
 			ConfiguredPlacement anica_ore_custom_config = Placement.COUNT_RANGE.configure( anica_ore_placement );
 			OreFeatureConfig anica_ore_feature_config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, AnicaModBlocks.anica_ore.getDefaultState() , 10 ); // 10 is max ore-vien size
 					
