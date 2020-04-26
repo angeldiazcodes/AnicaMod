@@ -4,17 +4,12 @@ import angel.anicamod.AnicaMod;
 import angel.anicamod.AnicaModBlocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
 import net.minecraft.inventory.container.Slot;
 
 /*
@@ -34,7 +29,7 @@ public class AnicaFurnaceContainer extends AnicaContainer {
     public AnicaFurnaceContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
         super(windowId, world, pos, playerInventory, player, AnicaModBlocks.anica_furnace_container);
         
-        if (AnicaFurnaceContainer.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnaceContainer: Constructor");
+        AnicaMod.log(debug, "AnicaFurnaceContainer: Constructor");
         
         tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
         	// net.minecraftforge.items.SlotItemHandler: SlotItemHandler(IItemHandler itemHandler, int index, int xPosition, int yPosition

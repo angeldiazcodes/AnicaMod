@@ -7,7 +7,6 @@ import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
 import angel.anicamod.AnicaDimensionList;
-import angel.anicamod.AnicaMod;
 import angel.anicamod.util.helpers.TeleportationTools;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;

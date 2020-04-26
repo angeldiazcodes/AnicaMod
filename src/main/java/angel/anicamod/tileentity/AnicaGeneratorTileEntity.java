@@ -65,12 +65,12 @@ public class AnicaGeneratorTileEntity extends TileEntity  implements ITickableTi
     
 	public AnicaGeneratorTileEntity(final TileEntityType<?> tileEntityTypeIn) {
 		super(tileEntityTypeIn);
-		if (AnicaGeneratorTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorTileEntity: Contructor 1 " + tileEntityTypeIn.toString() );
+		AnicaMod.log(debug, "AnicaGeneratorTileEntity: Contructor 1 " + tileEntityTypeIn.toString() );
 	}
 
 	public AnicaGeneratorTileEntity() {
 		this(AnicaModBlocks.anica_generator_tile_entity);
-		if (AnicaGeneratorTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorTileEntity: Contructor 2 " + AnicaModBlocks.anica_generator_tile_entity.getRegistryName() );
+		AnicaMod.log(debug, "AnicaGeneratorTileEntity: Contructor 2 " + AnicaModBlocks.anica_generator_tile_entity.getRegistryName() );
 	}
 	
 	/*
@@ -93,7 +93,7 @@ public class AnicaGeneratorTileEntity extends TileEntity  implements ITickableTi
         
         super.read(tag);
         
-		if (AnicaGeneratorTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorTileEntity: read TAG " + invTag.toString() );
+        AnicaMod.log(debug,"AnicaGeneratorTileEntity: read TAG " + invTag.toString() );
 	}
 
 	/*
@@ -118,7 +118,7 @@ public class AnicaGeneratorTileEntity extends TileEntity  implements ITickableTi
 
         tag.putInt("counter", tickCount);
         
-		if (AnicaGeneratorTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorTileEntity: write TAG " + tag.toString() );
+        AnicaMod.log(debug,"AnicaGeneratorTileEntity: write TAG " + tag.toString() );
         return super.write(tag);
 	}
     
@@ -133,7 +133,7 @@ public class AnicaGeneratorTileEntity extends TileEntity  implements ITickableTi
 	private AnicaItemStackHandler createHandler()
 	{
 		anicaItemStackHandler = new AnicaItemStackHandler( this, 3 );
-		if (AnicaGeneratorTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorTileEntity: " + anicaItemStackHandler.getSlots() );
+		AnicaMod.log(debug, "AnicaGeneratorTileEntity: " + anicaItemStackHandler.getSlots() );
 		return anicaItemStackHandler;
 	}
     
@@ -167,7 +167,7 @@ public class AnicaGeneratorTileEntity extends TileEntity  implements ITickableTi
      */
     @Override
     public Container createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-    	if (AnicaGeneratorTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorTileEntity: createMenu " );
+    	AnicaMod.log(debug, "AnicaGeneratorTileEntity: createMenu " );
     	anicaGeneratorContainer = new AnicaGeneratorContainer(i, world, pos, playerInventory, playerEntity);
     	
     	return anicaGeneratorContainer;
@@ -175,14 +175,14 @@ public class AnicaGeneratorTileEntity extends TileEntity  implements ITickableTi
 
 	@Override
 	public ITextComponent getDisplayName() {
-		if (AnicaGeneratorTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorTileEntity: getDisplayName " + getType().getRegistryName().getPath());
+		AnicaMod.log(debug, "AnicaGeneratorTileEntity: getDisplayName " + getType().getRegistryName().getPath());
 		return new StringTextComponent(getType().getRegistryName().getPath());
 	}
 
 	@Override
 	public void tick() {
         if (world.isRemote) {
-        	if (AnicaGeneratorTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorTileEntity: world is remote - no tick for you" );
+        	AnicaMod.log(debug, "AnicaGeneratorTileEntity: world is remote - no tick for you" );
             return;
         }
         
@@ -223,7 +223,7 @@ public class AnicaGeneratorTileEntity extends TileEntity  implements ITickableTi
                     TileEntity te = world.getTileEntity(pos.offset(direction));
                     if (te != null) {
                         boolean doContinue = te.getCapability(CapabilityEnergy.ENERGY, direction).map(handler -> {
-                        			if (AnicaGeneratorTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorTileEntity: handler.canReceive() " + handler.canReceive());
+                        			AnicaMod.log(debug, "AnicaGeneratorTileEntity: handler.canReceive() " + handler.canReceive());
                                     if (handler.canReceive()) {
                                         int received = handler.receiveEnergy(Math.min(capacity.get(), 100), false);
                                         capacity.addAndGet(-received);
@@ -250,7 +250,7 @@ public class AnicaGeneratorTileEntity extends TileEntity  implements ITickableTi
 	@Override
 	public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
 		super.onDataPacket(net, pkt);
-		if (AnicaGeneratorTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorTileEntity: onDataPacket " + pkt.toString());
+		AnicaMod.log(debug, "AnicaGeneratorTileEntity: onDataPacket " + pkt.toString());
 	}
 	
     private IEnergyStorage createEnergy() {

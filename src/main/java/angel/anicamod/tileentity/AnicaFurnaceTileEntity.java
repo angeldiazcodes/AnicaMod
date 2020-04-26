@@ -55,12 +55,12 @@ public class AnicaFurnaceTileEntity extends TileEntity  implements ITickableTile
     
 	public AnicaFurnaceTileEntity(final TileEntityType<?> tileEntityTypeIn) {
 		super(tileEntityTypeIn);
-		if (AnicaFurnaceTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnaceTileEntity: Contructor 1 " + tileEntityTypeIn.toString() );
+		AnicaMod.log(debug, "AnicaFurnaceTileEntity: Contructor 1 " + tileEntityTypeIn.toString() );
 	}
 
 	public AnicaFurnaceTileEntity() {
 		this(AnicaModBlocks.anica_furnace_tile_entity);
-		if (AnicaFurnaceTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnaceTileEntity: Contructor 2 " + AnicaModBlocks.anica_furnace_tile_entity.getRegistryName() );
+		AnicaMod.log(debug, "AnicaFurnaceTileEntity: Contructor 2 " + AnicaModBlocks.anica_furnace_tile_entity.getRegistryName() );
 	}
 	
 	/*
@@ -77,7 +77,7 @@ public class AnicaFurnaceTileEntity extends TileEntity  implements ITickableTile
         handler.ifPresent(h -> ((INBTSerializable<CompoundNBT>)h).deserializeNBT(invTag));
         super.read(tag);
         
-		if (AnicaFurnaceTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnaceTileEntity: read TAG " + invTag.toString() );
+        AnicaMod.log(debug, "AnicaFurnaceTileEntity: read TAG " + invTag.toString() );
 	}
 
 	/*
@@ -95,7 +95,7 @@ public class AnicaFurnaceTileEntity extends TileEntity  implements ITickableTile
             tag.put("inv", compound);
         });
 
-		if (AnicaFurnaceTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnaceTileEntity: write TAG " + tag.toString() );
+        AnicaMod.log(debug, "AnicaFurnaceTileEntity: write TAG " + tag.toString() );
         return super.write(tag);
 	}
     
@@ -110,7 +110,7 @@ public class AnicaFurnaceTileEntity extends TileEntity  implements ITickableTile
 	private AnicaItemStackHandler createHandler()
 	{
 		anicaItemStackHandler = new AnicaItemStackHandler( this, 3 );
-		if (AnicaFurnaceTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaItemStackHandler: " + anicaItemStackHandler.getSlots() );
+		AnicaMod.log(debug, "AnicaItemStackHandler: " + anicaItemStackHandler.getSlots() );
 		return anicaItemStackHandler;
 	}
     
@@ -141,7 +141,7 @@ public class AnicaFurnaceTileEntity extends TileEntity  implements ITickableTile
      */
     @Override
     public Container createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-    	if (AnicaFurnaceTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnaceTileEntity: createMenu " );
+    	AnicaMod.log(debug, "AnicaFurnaceTileEntity: createMenu " );
     	anicaFurnaceContainer = new AnicaFurnaceContainer(i, world, pos, playerInventory, playerEntity);
     	
     	return anicaFurnaceContainer;
@@ -149,7 +149,7 @@ public class AnicaFurnaceTileEntity extends TileEntity  implements ITickableTile
 
 	@Override
 	public ITextComponent getDisplayName() {
-		if (AnicaFurnaceTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnaceTileEntity: getDisplayName " + getType().getRegistryName().getPath());
+		AnicaMod.log(debug, "AnicaFurnaceTileEntity: getDisplayName " + getType().getRegistryName().getPath());
 		return new StringTextComponent(getType().getRegistryName().getPath());
 	}
 
@@ -175,7 +175,7 @@ public class AnicaFurnaceTileEntity extends TileEntity  implements ITickableTile
 						{
 							if ( (outputStack.getItem() == Items.COAL) || (outputStack.getItem() == Items.AIR) )
 							{
-								if (AnicaFurnaceTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnaceTileEntity: smelting diamonds");
+								AnicaMod.log(debug, "AnicaFurnaceTileEntity: smelting diamonds");
 								inputStack.shrink(1);
 								anicaFurnaceContainer.putStackInSlot(0, inputStack );
 							
@@ -199,6 +199,6 @@ public class AnicaFurnaceTileEntity extends TileEntity  implements ITickableTile
 	@Override
 	public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
 		super.onDataPacket(net, pkt);
-		if (AnicaFurnaceTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnaceTileEntity: onDataPacket " + pkt.toString());
+		AnicaMod.log(debug, "AnicaFurnaceTileEntity: onDataPacket " + pkt.toString());
 	}
 }

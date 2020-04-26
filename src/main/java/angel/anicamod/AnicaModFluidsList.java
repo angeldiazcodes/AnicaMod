@@ -12,7 +12,6 @@ import net.minecraftforge.registries.ObjectHolder;
 
 @ObjectHolder(AnicaMod.MODID)
 public class AnicaModFluidsList {	
-		
 		public static AnicaAcid.Flowing ANICA_FLOWING_ACID = (Flowing) new AnicaAcid.Flowing().setRegistryName( new ResourceLocation (AnicaMod.MODID, AnicaMod.ANICA_ACID_FLOW));
 		public static  AnicaAcid.Source ANICA_ACID_STILL = (Source) new AnicaAcid.Source().setRegistryName( new ResourceLocation (AnicaMod.MODID, AnicaMod.ANICA_ACID_STILL)); //ModUtil._null();
 		private static boolean debug = true;
@@ -22,7 +21,7 @@ public class AnicaModFluidsList {
 		}
 		
 	    public static void registerFluids(final IForgeRegistry<Fluid> registry) {
-	        if (AnicaModFluidsList.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaModFluidsList: registerFluids" );
+	    	AnicaMod.log(debug, "AnicaModFluidsList: registerFluids" );
 	        
 			final Fluid [] fluids = {
 					ANICA_FLOWING_ACID,

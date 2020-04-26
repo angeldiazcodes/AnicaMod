@@ -39,7 +39,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
 
 public class AnicaModBlocks {
-
+	private static boolean debug = true;
+	
 	// Blocks
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BLOCK)
 	public static AnicaBlock anica_block = ModUtil._null();
@@ -116,7 +117,7 @@ public class AnicaModBlocks {
 	
 	public static void registerTiles(IForgeRegistry<TileEntityType<?>> registry)
 	{
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerTiles: Tiles registered " + registry.toString());
+		AnicaMod.log(debug, "registerTiles: Tiles registered " + registry.toString());
 		
 		//
 		// anica_furnace
@@ -127,7 +128,7 @@ public class AnicaModBlocks {
 		anica_furnace_tile_entity.setRegistryName( new ResourceLocation( AnicaMod.MODID, AnicaMod.ANICA_FURNACE) ); // ANICA_FURNACE_TILE_ENTITY ANICA_FURNACE
 		registry.register(anica_furnace_tile_entity); 
 		
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerTiles: Tiles registered anica_furnace_tile_entity " + anica_furnace_tile_entity.getRegistryName().toString() );
+		AnicaMod.log(debug,"registerTiles: Tiles registered anica_furnace_tile_entity " + anica_furnace_tile_entity.getRegistryName().toString() );
 		
 		//
 		// anica_generator
@@ -166,16 +167,16 @@ public class AnicaModBlocks {
 		registry.register(anica_basic_cable_tile_entity); 
 		
 		
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerTiles: Tiles registered anica_generator_tile_entity " + anica_generator_tile_entity.getRegistryName().toString() );
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerTiles: Tiles registered anica_furnace_tile_entity " + anica_furnace_tile_entity.toString());
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerTiles: Tiles registered anica_battery_tile_entity " + anica_battery_tile_entity.toString());	
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerTiles: Tiles registered anica_basic_solar_tile_entity " + anica_basic_solar_tile_entity.toString());
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerTiles: Tiles registered anica_basic_cable_tile_entity " + anica_basic_cable_tile_entity.toString());
+		AnicaMod.log(debug, "registerTiles: Tiles registered anica_generator_tile_entity " + anica_generator_tile_entity.getRegistryName().toString() );
+		AnicaMod.log(debug, "registerTiles: Tiles registered anica_furnace_tile_entity " + anica_furnace_tile_entity.toString());
+		AnicaMod.log(debug, "registerTiles: Tiles registered anica_battery_tile_entity " + anica_battery_tile_entity.toString());	
+		AnicaMod.log(debug, "registerTiles: Tiles registered anica_basic_solar_tile_entity " + anica_basic_solar_tile_entity.toString());
+		AnicaMod.log(debug, "registerTiles: Tiles registered anica_basic_cable_tile_entity " + anica_basic_cable_tile_entity.toString());
 	}
 	
 	public static void registerContainers(IForgeRegistry<ContainerType<?>> registry)
 	{
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers: Containers registered");
+		AnicaMod.log(debug, "registerContainers: Containers registered");
 		
 		//
 		// anica_furnace_container
@@ -185,17 +186,17 @@ public class AnicaModBlocks {
 		{ 
 			BlockPos pos = data.readBlockPos();
 			
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + windowId );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + pos.toString() );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + AnicaMod.proxy.getClientWorld() );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + AnicaMod.proxy.getClientPlayer());
+			AnicaMod.log(debug, "registerContainers:" + windowId );
+			AnicaMod.log(debug, "registerContainers:" + pos.toString() );
+			AnicaMod.log(debug, "registerContainers:" + AnicaMod.proxy.getClientWorld() );
+			AnicaMod.log(debug, "registerContainers:" + AnicaMod.proxy.getClientPlayer());
 			
 			return new AnicaFurnaceContainer(windowId, AnicaMod.proxy.getClientWorld(), pos, inv, AnicaMod.proxy.getClientPlayer());
 		} );
 		// associate the container type with the blocks that need it 
 		anica_furnace_container.setRegistryName( new ResourceLocation( AnicaMod.MODID, AnicaMod.ANICA_FURNACE )); // ANICA_FURNACE_CONTAINER ANICA_FURNACE
 		
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers: anica_furnace_container" + anica_furnace_container.getRegistryName().toString() );
+		AnicaMod.log(debug, "registerContainers: anica_furnace_container" + anica_furnace_container.getRegistryName().toString() );
 		
 		registry.register(anica_furnace_container);
 		
@@ -207,17 +208,17 @@ public class AnicaModBlocks {
 		{ 
 			BlockPos pos = data.readBlockPos();
 			
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + windowId );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + pos.toString() );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + AnicaMod.proxy.getClientWorld() );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + AnicaMod.proxy.getClientPlayer());
+			AnicaMod.log(debug, "registerContainers:" + windowId );
+			AnicaMod.log(debug, "registerContainers:" + pos.toString() );
+			AnicaMod.log(debug, "registerContainers:" + AnicaMod.proxy.getClientWorld() );
+			AnicaMod.log(debug, "registerContainers:" + AnicaMod.proxy.getClientPlayer());
 			
 			return new AnicaGeneratorContainer(windowId, AnicaMod.proxy.getClientWorld(), pos, inv, AnicaMod.proxy.getClientPlayer());
 		} );
 		// associate the container type with the blocks that need it 
 		anica_generator_container.setRegistryName( new ResourceLocation( AnicaMod.MODID, AnicaMod.ANICA_GENERATOR )); // ANICA_FURNACE_CONTAINER ANICA_FURNACE
 		
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers: anica_generator_container " + anica_generator_container.getRegistryName().toString() );
+		AnicaMod.log(debug, "registerContainers: anica_generator_container " + anica_generator_container.getRegistryName().toString() );
 		
 		registry.register(anica_generator_container);
 		
@@ -229,17 +230,17 @@ public class AnicaModBlocks {
 		{ 
 			BlockPos pos = data.readBlockPos();
 			
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + windowId );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + pos.toString() );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + AnicaMod.proxy.getClientWorld() );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + AnicaMod.proxy.getClientPlayer());
+			AnicaMod.log(debug, "registerContainers:" + windowId );
+			AnicaMod.log(debug, "registerContainers:" + pos.toString() );
+			AnicaMod.log(debug, "registerContainers:" + AnicaMod.proxy.getClientWorld() );
+			AnicaMod.log(debug, "registerContainers:" + AnicaMod.proxy.getClientPlayer());
 			
 			return new AnicaBatteryContainer(windowId, AnicaMod.proxy.getClientWorld(), pos, inv, AnicaMod.proxy.getClientPlayer());
 		} );
 		// associate the container type with the blocks that need it 
 		anica_battery_container.setRegistryName( new ResourceLocation( AnicaMod.MODID, AnicaMod.ANICA_BATTERY )); 
 		
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers: anica_battery_container " + anica_battery_container.getRegistryName().toString() );
+		AnicaMod.log(debug, "registerContainers: anica_battery_container " + anica_battery_container.getRegistryName().toString() );
 		
 		registry.register(anica_battery_container);
 		
@@ -251,17 +252,17 @@ public class AnicaModBlocks {
 		{ 
 			BlockPos pos = data.readBlockPos();
 			
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + windowId );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + pos.toString() );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + AnicaMod.proxy.getClientWorld() );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + AnicaMod.proxy.getClientPlayer());
+			AnicaMod.log(debug, "registerContainers:" + windowId );
+			AnicaMod.log(debug, "registerContainers:" + pos.toString() );
+			AnicaMod.log(debug, "registerContainers:" + AnicaMod.proxy.getClientWorld() );
+			AnicaMod.log(debug, "registerContainers:" + AnicaMod.proxy.getClientPlayer());
 			
 			return new AnicaBasicSolarContainer(windowId, AnicaMod.proxy.getClientWorld(), pos, inv, AnicaMod.proxy.getClientPlayer());
 		} );
 		// associate the container type with the blocks that need it 
 		anica_basic_solar_container.setRegistryName( new ResourceLocation( AnicaMod.MODID, AnicaMod.ANICA_BASIC_SOLAR )); 
 		
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers: anica_basic_solar_container " + anica_basic_solar_container.getRegistryName().toString() );
+		AnicaMod.log(debug, "registerContainers: anica_basic_solar_container " + anica_basic_solar_container.getRegistryName().toString() );
 		
 		registry.register(anica_basic_solar_container);
 		
@@ -273,27 +274,27 @@ public class AnicaModBlocks {
 		{ 
 			BlockPos pos = data.readBlockPos();
 			
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + windowId );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + pos.toString() );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + AnicaMod.proxy.getClientWorld() );
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers:" + AnicaMod.proxy.getClientPlayer());
+			AnicaMod.log(debug, "registerContainers:" + windowId );
+			AnicaMod.log(debug, "registerContainers:" + pos.toString() );
+			AnicaMod.log(debug, "registerContainers:" + AnicaMod.proxy.getClientWorld() );
+			AnicaMod.log(debug, "registerContainers:" + AnicaMod.proxy.getClientPlayer());
 			
 			return new AnicaBasicCableContainer(windowId, AnicaMod.proxy.getClientWorld(), pos, inv, AnicaMod.proxy.getClientPlayer());
 		} );
 		// associate the container type with the blocks that need it 
 		anica_basic_cable_container.setRegistryName( new ResourceLocation( AnicaMod.MODID, AnicaMod.ANICA_BASIC_CABLE )); 
 		
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers: anica_basic_cable_container " + anica_basic_cable_container.getRegistryName().toString() );
+		AnicaMod.log(debug, "registerContainers: anica_basic_cable_container " + anica_basic_cable_container.getRegistryName().toString() );
 		
 		registry.register(anica_basic_cable_container);
 		
 		
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerContainers: Containers registered Done!");
+		AnicaMod.log(debug, "registerContainers: Containers registered Done!");
 	}
 	
 	public static void register(IForgeRegistry<Block> registry)
 	{
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "register: Block registered");
+		AnicaMod.log(debug, "register: Block registered");
     	
 		anica_block = new AnicaBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2.0f, 3.0f).lightValue(5).sound(SoundType.METAL));
 		registry.register(anica_block);

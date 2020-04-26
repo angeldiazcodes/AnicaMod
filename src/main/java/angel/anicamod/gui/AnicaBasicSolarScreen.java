@@ -29,7 +29,7 @@ public class AnicaBasicSolarScreen extends ContainerScreen<AnicaBasicSolarContai
 	{
 		super(container, inv, name);
 		this.container = container;
-		if (AnicaBasicSolarScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarScreen: Constructor");
+		AnicaMod.log(debug,"AnicaBasicSolarScreen: Constructor");
 	}
 
     @Override
@@ -37,12 +37,12 @@ public class AnicaBasicSolarScreen extends ContainerScreen<AnicaBasicSolarContai
         this.renderBackground();
         super.render(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
-		if (AnicaBasicSolarScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarScreen: render");
+        AnicaMod.log(debug,"AnicaBasicSolarScreen: render");
     }
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		if (AnicaBasicSolarScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarScreen: drawGuiContainerForegroundLayer");
+    	AnicaMod.log(debug,"AnicaBasicSolarScreen: drawGuiContainerForegroundLayer");
 		 drawString(Minecraft.getInstance().fontRenderer, "Anica Basic Solar Energy: " + container.getEnergy(), 10, 10, 0xffffff); 
     }
 
@@ -54,7 +54,7 @@ public class AnicaBasicSolarScreen extends ContainerScreen<AnicaBasicSolarContai
         int relX = (this.width - this.xSize) / 2;
         int relY = (this.height - this.ySize) / 2;
         this.blit(relX, relY, 0, 0, this.xSize, this.ySize);
-		if (AnicaBasicSolarScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarScreen: drawGuiContainerBackgroundLayer");
+        AnicaMod.log(debug,"AnicaBasicSolarScreen: drawGuiContainerBackgroundLayer");
     }
 
 }

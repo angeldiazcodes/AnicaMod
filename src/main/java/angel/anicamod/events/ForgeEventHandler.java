@@ -39,12 +39,13 @@ public class ForgeEventHandler {
 	
     @SubscribeEvent
     public static void onDimensionRegistry(RegisterDimensionsEvent event) {
-    	if (ForgeEventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "onDimensionRegistry: Dimensions Registered! ");
+    	AnicaMod.log(debug, "ForgeEventHandler: onDimensionRegistry: Dimensions Registered! ");
     	AnicaDimensionList.DIMENSION_TYPE = DimensionManager.registerOrGetDimension(AnicaMod.ANICA_DIM_TYPE, AnicaDimensionList.ANICA_DIM.get(), null, true);
     }
 	 
     @SubscribeEvent
     public static void serverLoad(FMLServerStartingEvent event) {
+    	AnicaMod.log(debug, "ForgeEventHandler: serverLoad");
         AnicaModCommands.register(event.getCommandDispatcher());
     }
 }

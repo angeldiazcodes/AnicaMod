@@ -28,7 +28,7 @@ public class AnicaFurnaceScreen extends ContainerScreen<AnicaFurnaceContainer> {
 	{
 		super(container, inv, name);
 		this.container = container;
-		if (AnicaFurnaceScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnaceScreen: Constructor");
+		AnicaMod.log(debug,"AnicaFurnaceScreen: Constructor");
 	}
 
     @Override
@@ -36,13 +36,13 @@ public class AnicaFurnaceScreen extends ContainerScreen<AnicaFurnaceContainer> {
         this.renderBackground();
         super.render(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
-		if (AnicaFurnaceScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnaceScreen: render");
+        AnicaMod.log(debug,"AnicaFurnaceScreen: render");
     }
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		if (AnicaFurnaceScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnaceScreen: drawGuiContainerForegroundLayer");
-		 drawString(Minecraft.getInstance().fontRenderer, "Anica Fast Furnace ", 10, 10, 0xffffff);
+    	AnicaMod.log(debug,"AnicaFurnaceScreen: drawGuiContainerForegroundLayer");
+		drawString(Minecraft.getInstance().fontRenderer, "Anica Fast Furnace ", 10, 10, 0xffffff);
     }
 
     @SuppressWarnings("deprecation")
@@ -53,7 +53,7 @@ public class AnicaFurnaceScreen extends ContainerScreen<AnicaFurnaceContainer> {
         int relX = (this.width - this.xSize) / 2;
         int relY = (this.height - this.ySize) / 2;
         this.blit(relX, relY, 0, 0, this.xSize, this.ySize);
-		if (AnicaFurnaceScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnaceScreen: drawGuiContainerBackgroundLayer");
+        AnicaMod.log(debug,"AnicaFurnaceScreen: drawGuiContainerBackgroundLayer");
     }
 
 }

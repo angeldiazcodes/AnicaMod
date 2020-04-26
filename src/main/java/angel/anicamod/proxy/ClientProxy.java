@@ -23,11 +23,12 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(Dist.CLIENT)
 public class ClientProxy implements IProxy {
+	private static boolean debug = false;
 
 	@Override
 	public void init()
 	{
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "ClientProxy:Init Starting " + ScreenManager.isMissingScreen());
+		AnicaMod.log(debug,"ClientProxy:Init Starting " + ScreenManager.isMissingScreen());
         
 		// add potion recipies
 		AnicaModPotionList.addRecipes();

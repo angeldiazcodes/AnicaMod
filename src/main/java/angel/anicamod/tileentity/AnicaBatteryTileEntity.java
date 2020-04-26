@@ -69,12 +69,12 @@ public class AnicaBatteryTileEntity extends TileEntity  implements ITickableTile
     
 	public AnicaBatteryTileEntity(final TileEntityType<?> tileEntityTypeIn) {
 		super(tileEntityTypeIn);
-		if (AnicaBatteryTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity: Contructor 1 " + tileEntityTypeIn.toString() );
+		AnicaMod.log(debug, "AnicaBatteryTileEntity: Contructor 1 " + tileEntityTypeIn.toString() );
 	}
 
 	public AnicaBatteryTileEntity() {
 		this(AnicaModBlocks.anica_battery_tile_entity);
-		if (AnicaBatteryTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity: Contructor 2 " + AnicaModBlocks.anica_battery_tile_entity.getRegistryName() );
+		AnicaMod.log(debug,"AnicaBatteryTileEntity: Contructor 2 " + AnicaModBlocks.anica_battery_tile_entity.getRegistryName() );
 	}
 	
 	/*
@@ -97,7 +97,7 @@ public class AnicaBatteryTileEntity extends TileEntity  implements ITickableTile
         
         super.read(tag);
         
-		if (AnicaBatteryTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity: read TAG " + invTag.toString() );
+        AnicaMod.log(debug, "AnicaBatteryTileEntity: read TAG " + invTag.toString() );
 	}
 
 	/*
@@ -122,7 +122,7 @@ public class AnicaBatteryTileEntity extends TileEntity  implements ITickableTile
 
         tag.putInt("counter", tickCount);
         
-		if (AnicaBatteryTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity: write TAG " + tag.toString() );
+        AnicaMod.log(debug, "AnicaBatteryTileEntity: write TAG " + tag.toString() );
         return super.write(tag);
 	}
     
@@ -137,7 +137,7 @@ public class AnicaBatteryTileEntity extends TileEntity  implements ITickableTile
 	private AnicaItemStackHandler createHandler()
 	{
 		anicaItemStackHandler = new AnicaItemStackHandler( this, 3 );
-		if (AnicaBatteryTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity: " + anicaItemStackHandler.getSlots() );
+		AnicaMod.log(debug, "AnicaBatteryTileEntity: " + anicaItemStackHandler.getSlots() );
 		return anicaItemStackHandler;
 	}
     
@@ -171,7 +171,7 @@ public class AnicaBatteryTileEntity extends TileEntity  implements ITickableTile
      */
     @Override
     public Container createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity: createMenu " );
+    	AnicaMod.log(debug, "AnicaBatteryTileEntity: createMenu " );
     	anicaBatteryContainer = new AnicaBatteryContainer(i, world, pos, playerInventory, playerEntity);
     	
     	return anicaBatteryContainer;
@@ -179,7 +179,7 @@ public class AnicaBatteryTileEntity extends TileEntity  implements ITickableTile
 
 	@Override
 	public ITextComponent getDisplayName() {
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity: getDisplayName " + getType().getRegistryName().getPath());
+		AnicaMod.log(debug, "AnicaBatteryTileEntity: getDisplayName " + getType().getRegistryName().getPath());
 		return new StringTextComponent(getType().getRegistryName().getPath());
 	}
 
@@ -204,16 +204,16 @@ public class AnicaBatteryTileEntity extends TileEntity  implements ITickableTile
             				int stackCount = inputStack.getCount();
             				String stackDisplayName = inputStack.getDisplayName().toString();
             			
-            				if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity:inventoryTick: stackCount " + stackCount);
-            				if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity:inventoryTick: stackDisplayName " + stackDisplayName);
+            				AnicaMod.log(debug, "AnicaBatteryTileEntity:inventoryTick: stackCount " + stackCount);
+            				AnicaMod.log(debug, "AnicaBatteryTileEntity:inventoryTick: stackDisplayName " + stackDisplayName);
             					
             				if ( inputStack.getTag() == null ) { inputStack.setTag( new CompoundNBT() ); inputStack.getTag().putInt("egy", 0 ); }
             			
-            				if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity:inventoryTick: before getInt " + inputStack.getTag().getInt("egy"));
+            				AnicaMod.log(debug, "AnicaBatteryTileEntity:inventoryTick: before getInt " + inputStack.getTag().getInt("egy"));
             		
             				inputStack.getTag().putInt("egy", inputStack.getTag().getInt("egy")+ 10 );
             			
-            				if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity:inventoryTick: after getInt " + inputStack.getTag().getInt("egy"));
+            				AnicaMod.log(debug, "AnicaBatteryTileEntity:inventoryTick: after getInt " + inputStack.getTag().getInt("egy"));
            
             				h.setStackInSlot(0, inputStack );
             				anicaBatteryContainer.putStackInSlot(0, inputStack );
@@ -234,7 +234,7 @@ public class AnicaBatteryTileEntity extends TileEntity  implements ITickableTile
 	@Override
 	public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
 		super.onDataPacket(net, pkt);
-		if (AnicaBatteryTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryTileEntity: onDataPacket " + pkt.toString());
+		AnicaMod.log(debug, "AnicaBatteryTileEntity: onDataPacket " + pkt.toString());
 	}
 	
     private IEnergyStorage createEnergy() {

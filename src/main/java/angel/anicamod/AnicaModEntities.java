@@ -14,6 +14,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
 
 public class AnicaModEntities {
+	private static boolean debug = false;
 
 	// Must setup entities here due to sequencing of Items, Blocks, Entities etc. 
 	@SuppressWarnings("unchecked")
@@ -28,7 +29,7 @@ public class AnicaModEntities {
 	
 	public static Item registerEntitySpawnEgg(EntityType<?> type, int primaryColor, int secondaryColor, String name)
 	{
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerEntitySpawnEgg: Starting");
+		AnicaMod.log(debug, "registerEntitySpawnEgg: Starting");
 		
 		SpawnEggItem item = new SpawnEggItem(type, primaryColor, secondaryColor, new Item.Properties().group(AnicaMod.anicaModTab) );
 		item.setRegistryName( new ResourceLocation(AnicaMod.MODID, name));
@@ -47,7 +48,7 @@ public class AnicaModEntities {
 		{
 			if ( biome != null)
 			{
-				if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerEntitySpawnEgg: " + biome.toString() );
+				AnicaMod.log(debug, "registerEntitySpawnEgg: " + biome.toString() );
 				biome.getSpawns(entity.getClassification()).add(new SpawnListEntry(entity, 1000, 2, 10) ); // spawn rate, min spawn together, max spawn together
 			}
 		}

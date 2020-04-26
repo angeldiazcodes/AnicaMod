@@ -33,7 +33,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
 
 public class AnicaModItems {
-
+	private static boolean debug = true;
+	
 	// Items
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_ITEM)
 	public static AnicaItem anica_item;
@@ -119,7 +120,7 @@ public class AnicaModItems {
 	public static void register(IForgeRegistry<Item> registry)
 	{
 		
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaModItems:register: event recieved " + registry.toString());
+		AnicaMod.log(debug, "AnicaModItems:register: event recieved " + registry.toString());
 		
 		// Items
 		anica_item = new AnicaItem(); 
@@ -204,7 +205,7 @@ public class AnicaModItems {
 		anica_pepper_item = new AnicaPepperItem( AnicaModBlocks.anica_crop_pepper_block, new Item.Properties().group(AnicaMod.anicaModTab).food( AnicaModFoodList.anica_food_pepper));
 		registry.register(anica_pepper_item);
 				
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaModItems:register: event recieved Done!");
+		AnicaMod.log(debug, "AnicaModItems:register: event recieved Done!");
         
 	}
 	

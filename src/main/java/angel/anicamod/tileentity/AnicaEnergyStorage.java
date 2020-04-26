@@ -48,7 +48,7 @@ public class AnicaEnergyStorage extends EnergyStorage implements INBTSerializabl
     	}
     	else
     	{
-    		if (AnicaEnergyStorage.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaEnergyStorage: adding engergy " + maxReceive);
+    		AnicaMod.log(debug, "AnicaEnergyStorage: adding engergy " + maxReceive);
     		addEnergy( maxReceive );
     		return maxReceive;
     	}

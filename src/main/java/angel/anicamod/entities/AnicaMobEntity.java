@@ -19,7 +19,7 @@ public class AnicaMobEntity extends CreatureEntity {
 	@SuppressWarnings("unchecked")
     public AnicaMobEntity(EntityType<? extends CreatureEntity> type, World worldIn) {
         super( (EntityType<? extends CreatureEntity>) AnicaModEntities.anica_mob_entity, worldIn);
-        if (AnicaMobEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMobEntity: Constructor");
+        AnicaMod.log(debug, "AnicaMobEntity: Constructor");
     }
     
     @Override
@@ -40,7 +40,7 @@ public class AnicaMobEntity extends CreatureEntity {
     
     @Override
     protected SoundEvent getAmbientSound() {
-    	if (AnicaMobEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMobEntity: getAmbientSound");
+    	AnicaMod.log(debug, "AnicaMobEntity: getAmbientSound");
     	return AnicaModSoundList.ANICA_ENTITY_AMBIENT.get();
     }
 }

@@ -46,7 +46,7 @@ public class AnicaBasicDrillItem extends Item {
 	
 	@Override
 	public boolean onBlockStartBreak(ItemStack itemstack, BlockPos pos, PlayerEntity player) {
-		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onBlockStartBreak ");
+		AnicaMod.log(debug, "AnicaBasicDrillItem: onBlockStartBreak ");
 		return super.onBlockStartBreak(itemstack, pos, player);
 	}
 	
@@ -56,7 +56,7 @@ public class AnicaBasicDrillItem extends Item {
 	
 	@Override
 	public boolean canPlayerBreakBlockWhileHolding(BlockState state, World worldIn, BlockPos pos, PlayerEntity player) {
-		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: canPlayerBreakBlockWhileHolding ");
+		AnicaMod.log(debug, "AnicaBasicDrillItem: canPlayerBreakBlockWhileHolding ");
 		return super.canPlayerBreakBlockWhileHolding(state, worldIn, pos, player);
 	}
 	
@@ -66,7 +66,7 @@ public class AnicaBasicDrillItem extends Item {
 	
 	@Override
 	public void onUsingTick(ItemStack stack, LivingEntity player, int count) {
-		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onUsingTick ");
+		AnicaMod.log(debug, "AnicaBasicDrillItem: onUsingTick ");
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class AnicaBasicDrillItem extends Item {
 	
 	@Override
 	public ActionResultType onItemUse(ItemUseContext context) {
-		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onItemUse ");
+		AnicaMod.log(debug, "AnicaBasicDrillItem: onItemUse ");
 		
 	    // Not here: We now do this in the event handler, but lets keep this code for a while as I ponder/debug
 		/*
@@ -127,7 +127,7 @@ public class AnicaBasicDrillItem extends Item {
 	
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity) {
-		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onLeftClickEntity " + entity.toString());
+		AnicaMod.log(debug, "AnicaBasicDrillItem: onLeftClickEntity " + entity.toString());
 		// this gets called when hitting a living entity (not block)
 		return super.onLeftClickEntity(stack, player, entity);
 	}
@@ -138,7 +138,7 @@ public class AnicaBasicDrillItem extends Item {
 	
 	@Override
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: hitEntity ");
+		AnicaMod.log(debug, "AnicaBasicDrillItem: hitEntity ");
 		return super.hitEntity(stack, target, attacker);
 	}
 	
@@ -148,7 +148,7 @@ public class AnicaBasicDrillItem extends Item {
 	
 	@Override
 	public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
-		if (AnicaBasicDrillItem.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicDrillItem: onEntitySwing ");
+		AnicaMod.log(debug, "AnicaBasicDrillItem: onEntitySwing ");
 		
         // Not here: We this in the event handler not here, but lets keep this code for a while as I ponder
         // BlockState junglePlanks = Blocks.BIRCH_PLANKS.getDefaultState();

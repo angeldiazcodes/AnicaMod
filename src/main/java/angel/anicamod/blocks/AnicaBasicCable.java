@@ -57,7 +57,7 @@ public class AnicaBasicCable extends Block  {
     
 	public AnicaBasicCable(final Properties properties) {			
 		super( properties );	
-		if (AnicaBasicCable.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicCable: constructor ");
+		AnicaMod.log(debug,"AnicaBasicCable: constructor ");
 		setRegistryName(new ResourceLocation(AnicaMod.MODID, AnicaMod.ANICA_BASIC_CABLE));
 		
 		this.setDefaultState(getDefaultState().with(NORTH, false).with(EAST, false).with(SOUTH, false).with(WEST, false).with(UP, false).with(DOWN, false));
@@ -161,7 +161,7 @@ public class AnicaBasicCable extends Block  {
 	@Nullable
 	@Override
 	public TileEntity createTileEntity(final BlockState state, final IBlockReader world) {
-		if (AnicaBasicCable.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicCable: Creating tile entity " + AnicaModBlocks.anica_basic_cable_tile_entity.toString() );
+		AnicaMod.log(debug,"AnicaBasicCable: Creating tile entity " + AnicaModBlocks.anica_basic_cable_tile_entity.toString() );
 		return AnicaModBlocks.anica_basic_cable_tile_entity.create();
 	}
 	
@@ -169,13 +169,13 @@ public class AnicaBasicCable extends Block  {
     @Override
     public void onBlockPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
         if (entity != null) {
-        	if (AnicaBasicCable.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicCable: onBlockPlacedBy ");
+        	AnicaMod.log(debug,"AnicaBasicCable: onBlockPlacedBy ");
             world.setBlockState(pos, state.with(BlockStateProperties.FACING, getFacingFromEntity(pos, entity)), 2);
         }
     }
 
     public static Direction getFacingFromEntity(BlockPos clickedBlock, LivingEntity entity) {
-    	if (AnicaBasicCable.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicCable: getFacingFromEntity ");
+    	AnicaMod.log(debug,"AnicaBasicCable: getFacingFromEntity ");
     	return Direction.getFacingFromVector((float) (entity.lastTickPosX - clickedBlock.getX()), (float) (entity.lastTickPosY - clickedBlock.getY()), (float) (entity.lastTickPosZ - clickedBlock.getZ()));
     }
 
@@ -206,7 +206,7 @@ public class AnicaBasicCable extends Block  {
         if (tile == null) {
             return false;
         } 
-        if (AnicaBasicCable.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicCable: hasNode is air " + tile.getBlockState().isAir() );
+        AnicaMod.log(debug,"AnicaBasicCable: hasNode is air " + tile.getBlockState().isAir() );
         
         return !tile.getBlockState().isAir();
     }

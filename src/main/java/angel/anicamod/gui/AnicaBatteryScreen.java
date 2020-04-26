@@ -28,7 +28,7 @@ public class AnicaBatteryScreen extends ContainerScreen<AnicaBatteryContainer> {
 	{
 		super(container, inv, name);
 		this.container = container;
-		if (AnicaBatteryScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryScreen: Constructor");
+		AnicaMod.log(debug,"AnicaBatteryScreen: Constructor");
 	}
 
     @Override
@@ -36,13 +36,13 @@ public class AnicaBatteryScreen extends ContainerScreen<AnicaBatteryContainer> {
         this.renderBackground();
         super.render(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
-		if (AnicaBatteryScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryScreen: render");
+        AnicaMod.log(debug,"AnicaBatteryScreen: render");
     }
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		if (AnicaBatteryScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryScreen: drawGuiContainerForegroundLayer");
-		 drawString(Minecraft.getInstance().fontRenderer, "Stored Energy: " + + container.getEnergy(), 10, 10, 0xffffff);     
+    	AnicaMod.log(debug,"AnicaBatteryScreen: drawGuiContainerForegroundLayer");
+		drawString(Minecraft.getInstance().fontRenderer, "Stored Energy: " + + container.getEnergy(), 10, 10, 0xffffff);     
     }
 
     @SuppressWarnings("deprecation")
@@ -53,7 +53,7 @@ public class AnicaBatteryScreen extends ContainerScreen<AnicaBatteryContainer> {
         int relX = (this.width - this.xSize) / 2;
         int relY = (this.height - this.ySize) / 2;
         this.blit(relX, relY, 0, 0, this.xSize, this.ySize);
-		if (AnicaBatteryScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryScreen: drawGuiContainerBackgroundLayer");
+        AnicaMod.log(debug,"AnicaBatteryScreen: drawGuiContainerBackgroundLayer");
     }
 
 }

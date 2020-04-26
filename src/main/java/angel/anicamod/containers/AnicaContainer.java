@@ -32,7 +32,7 @@ public class AnicaContainer extends Container {
     public AnicaContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player, ContainerType<?> anica_container) {
         super(anica_container, windowId);
         
-        if (AnicaContainer.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaContainer: Constructor");
+        AnicaMod.log(debug,"AnicaContainer: Constructor");
         
         tileEntity = world.getTileEntity(pos);
         this.playerEntity = player;
@@ -52,7 +52,7 @@ public class AnicaContainer extends Container {
      * 
      */
     private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {
-    	if (AnicaContainer.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaContainer: addSlotRange");
+    	AnicaMod.log(debug, "AnicaContainer: addSlotRange");
         for (int i = 0 ; i < amount ; i++) {
         	SlotItemHandler slotItemHandler = new SlotItemHandler(handler, index, x, y);
             addSlot(slotItemHandler);
@@ -70,7 +70,7 @@ public class AnicaContainer extends Container {
      */
     
     private int addSlotBox(IItemHandler handler, int index, int x, int y, int horAmount, int dx, int verAmount, int dy) {
-    	if (AnicaContainer.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaContainer: addSlotBox");
+    	AnicaMod.log(debug, "AnicaContainer: addSlotBox");
         for (int j = 0 ; j < verAmount ; j++) {
             index = addSlotRange(handler, index, x, y, horAmount, dx);
             y += dy;
@@ -87,7 +87,7 @@ public class AnicaContainer extends Container {
      */
     
     public void layoutPlayerInventorySlots(int leftCol, int topRow) {
-    	if (AnicaContainer.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaContainer: layoutPlayerInventorySlots");
+    	AnicaMod.log(debug, "AnicaContainer: layoutPlayerInventorySlots");
         // Player inventory
         addSlotBox(playerInventory, 9, leftCol, topRow, AC_INVENTORY_ROWS, AC_INVENTORY_INC, AC_INVENTORY_COLS, AC_INVENTORY_INC);
 

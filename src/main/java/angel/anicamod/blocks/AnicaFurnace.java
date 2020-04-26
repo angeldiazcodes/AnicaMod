@@ -30,7 +30,7 @@ public class AnicaFurnace extends Block  {
 	
 	public AnicaFurnace(final Properties properties) {			
 		super( properties );	
-		if (AnicaFurnace.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnace: constructor ");
+		AnicaMod.log(debug,"AnicaFurnace: constructor ");
 		setRegistryName(new ResourceLocation(AnicaMod.MODID, AnicaMod.ANICA_FURNACE));
 	}
 
@@ -47,7 +47,7 @@ public class AnicaFurnace extends Block  {
 		@SuppressWarnings("deprecation")
 		ActionResultType rt = super.onBlockActivated(state, world, pos, player, hand, result);
     	
-    	if (AnicaFurnace.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnace: onBlockActivated " + rt.toString());
+		AnicaMod.log(debug,"AnicaFurnace: onBlockActivated " + rt.toString());
     	
         if (!world.isRemote) {
             TileEntity tileEntity = world.getTileEntity(pos);
@@ -83,33 +83,33 @@ public class AnicaFurnace extends Block  {
 	@Nullable
 	@Override
 	public TileEntity createTileEntity(final BlockState state, final IBlockReader world) {
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnace: Creating tile entity " + AnicaModBlocks.anica_furnace_tile_entity.toString() );
+		AnicaMod.log(debug,"AnicaFurnace: Creating tile entity " + AnicaModBlocks.anica_furnace_tile_entity.toString() );
 		return AnicaModBlocks.anica_furnace_tile_entity.create();
 	}
 	
 	@SuppressWarnings({ "deprecation" })
 	@Override
 	public void onBlockClicked(BlockState state, World worldIn, BlockPos pos, PlayerEntity player) {
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaFurnace: onBlockClicked ");
+		AnicaMod.log(debug,"AnicaFurnace: onBlockClicked ");
 		super.onBlockClicked(state, worldIn, pos, player);
 	}
 
     @Override
     public void onBlockPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
         if (entity != null) {
-        	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBlock: onBlockPlacedBy ");
+        	AnicaMod.log(debug, "AnicaBlock: onBlockPlacedBy ");
             world.setBlockState(pos, state.with(BlockStateProperties.FACING, getFacingFromEntity(pos, entity)), 2);
         }
     }
 
     public static Direction getFacingFromEntity(BlockPos clickedBlock, LivingEntity entity) {
-    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBlock: getFacingFromEntity ");
+    	AnicaMod.log(debug,"AnicaBlock: getFacingFromEntity ");
     	return Direction.getFacingFromVector((float) (entity.lastTickPosX - clickedBlock.getX()), (float) (entity.lastTickPosY - clickedBlock.getY()), (float) (entity.lastTickPosZ - clickedBlock.getZ()));
     }
 
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBlock: fillStateContainer ");
+    	AnicaMod.log(debug, "AnicaBlock: fillStateContainer ");
         builder.add(BlockStateProperties.FACING);
     }
 }

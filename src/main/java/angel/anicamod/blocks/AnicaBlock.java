@@ -5,10 +5,11 @@ import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 
 public class AnicaBlock extends Block {
+	private static boolean debug = false;
 
 	public AnicaBlock(Properties properties) {
 		super(properties);
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBlock: constructor ");
+		AnicaMod.log(debug, "AnicaBlock: constructor ");
 		setRegistryName(new ResourceLocation(AnicaMod.MODID, AnicaMod.ANICA_BLOCK));
 	}
 }

@@ -6,16 +6,13 @@ import angel.anicamod.tileentity.AnicaEnergyStorage;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.IntReferenceHolder;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.minecraft.inventory.container.Slot;
 
 /*
  * AnicaBasicSolarContainer
@@ -34,7 +31,7 @@ public class AnicaBasicSolarContainer extends AnicaContainer {
     public AnicaBasicSolarContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
         super(windowId, world, pos, playerInventory, player, AnicaModBlocks.anica_basic_solar_container);
         
-        if (AnicaBasicSolarContainer.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarContainer: Constructor");
+        AnicaMod.log(debug,"AnicaBasicSolarContainer: Constructor");
        
         tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
         	// net.minecraftforge.items.SlotItemHandler: SlotItemHandler(IItemHandler itemHandler, int index, int xPosition, int yPosition

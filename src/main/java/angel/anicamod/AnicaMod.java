@@ -149,7 +149,7 @@ public class AnicaMod {
 	public static final String ANICA_SIMPLE_NET				= "anica_simple_net";
 	
 	public static final Logger logger = LogManager.getLogger(MODID);
-	public static final String logStub = "[*****************]:";
+	//public static final String logStub = "https://github.com/angeldiazcodes/AnicaMod:  ";
 	public static boolean debug = true;
 
 	public static final ItemGroup anicaModTab = new AnicaItemGroup();  
@@ -180,14 +180,18 @@ public class AnicaMod {
         
 	}
 	
+	public static void log( boolean debugIn, String message)
+	{
+		if (debugIn && debug ) logger.info("https://github.com/angeldiazcodes/AnicaMod:  " + message);
+	}
 	private void setup( final FMLCommonSetupEvent event) {
-        if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:setup: Setup message registered");
+        AnicaMod.log(AnicaMod.debug, "AnicaMod:setup: Setup message registered");
         proxy.init();
 
 	}
 
 	private void clientRegistries( final FMLClientSetupEvent event) {
-		if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:clientRegistries: Client message registered");
+		AnicaMod.log(AnicaMod.debug, "AnicaMod:clientRegistries: Client message registered");
 		AnicaModRegistry.registryEntityRenders();
 	}
 
@@ -197,83 +201,83 @@ public class AnicaMod {
 		@SubscribeEvent
 		public static void onBlockRegistry(final RegistryEvent.Register<Block> event)
 		{
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "onBlockRegistry: delegating to AnicaModBlocks");
+			AnicaMod.log(AnicaMod.debug, "onBlockRegistry: delegating to AnicaModBlocks");
 			AnicaModBlocks.register(event.getRegistry());
 		}
 		
 		@SubscribeEvent
 		public static void onItemsRegistry(final RegistryEvent.Register<Item> event)
 		{
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "onItemsRegistry: delegating to AnicaModItems");
+			AnicaMod.log(AnicaMod.debug, "onItemsRegistry: delegating to AnicaModItems");
 			AnicaModItems.register(event.getRegistry());	
 		}
 		
 		@SubscribeEvent
 		public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event)
 		{
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "onTileEntityRegistry: delegating to AnicaModBlocks");
+			AnicaMod.log(AnicaMod.debug, "onTileEntityRegistry: delegating to AnicaModBlocks");
 			AnicaModBlocks.registerTiles(event.getRegistry());
 		}
 	
 		@SubscribeEvent
 		public static void onContainerRegistry(final RegistryEvent.Register<ContainerType<?>> event)
 		{
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "onContainerRegistry: delegating to AnicaModBlocks");
+			AnicaMod.log(AnicaMod.debug, "onContainerRegistry: delegating to AnicaModBlocks");
 			AnicaModBlocks.registerContainers(event.getRegistry());
 		}
 		
         @SubscribeEvent
         public static void onEntityRegistry(final RegistryEvent.Register<EntityType<?>> event) {
-	    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:onEntityRegistry: delegating to AnicaModEntities"); 
+        	AnicaMod.log(AnicaMod.debug, "AnicaMod:onEntityRegistry: delegating to AnicaModEntities"); 
 	    	AnicaModEntities.registerEntities( event.getRegistry() );
         }
 		
         @SubscribeEvent
         public static void onBiomeRegistry(final RegistryEvent.Register<Biome> event) {
-	    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:onEntityRegistry: delegating to AnicaModBiomes"); 
+        	AnicaMod.log(AnicaMod.debug, "AnicaMod:onEntityRegistry: delegating to AnicaModBiomes"); 
 	    	AnicaModBiomes.registerBiomes( event.getRegistry() );
         }
         
 	    @SubscribeEvent
 	    public static void registerStructures(final RegistryEvent.Register<Feature<?>> event) {
-	    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:registerStructures" );
+	    	AnicaMod.log(AnicaMod.debug, "AnicaMod:registerStructures" );
 	    	AnicaModStrucutresList.registerStructures( event.getRegistry() );
 	    }
         
 	    @SubscribeEvent
 	    public static void registerFluids(final RegistryEvent.Register<Fluid> event) {
-	    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:registerFluids" );
+	    	AnicaMod.log(AnicaMod.debug, "AnicaMod:registerFluids" );
 	    	AnicaModFluidsList.registerFluids( event.getRegistry() );
 	    }
         
 		@SubscribeEvent
 		public static void registerEffect(final RegistryEvent.Register<Effect> event) {
-	    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:registerEffect" );
+			AnicaMod.log(AnicaMod.debug, "AnicaMod:registerEffect" );
 	    	AnicaModEffectList.registerEffect( event.getRegistry() );			
 		}
 	    
 		@SubscribeEvent
 		public static void registerPotion(final RegistryEvent.Register<Potion> event) {
-	    	if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:registerPotion" );
+			AnicaMod.log(AnicaMod.debug, "AnicaMod:registerPotion" );
 	    	AnicaModPotionList.registerPotion( event.getRegistry() );
 		}
 		
 	    // nothing to do here - already done
 	    @SubscribeEvent
 	    public static void registerItems(final RegistryEvent.Register<Item> event) {
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:registerItems: nothing to do here, handled by AnicaModItems");
+	    	AnicaMod.log(AnicaMod.debug, "AnicaMod:registerItems: nothing to do here, handled by AnicaModItems");
 	    }
 	        
 	    @SubscribeEvent
 	    public static void registerBlocks(final RegistryEvent.Register<Block> event) 
 	    {
-	        if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:registerBlocks: nothing to do here, handled by AnicaModBlocks");
+	    	AnicaMod.log(AnicaMod.debug, "AnicaMod:registerBlocks: nothing to do here, handled by AnicaModBlocks");
 	    }
 	        
 	    @SubscribeEvent
 	    public static void registerTE(RegistryEvent.Register<TileEntityType<?>> evt) 
 	    {
-	    	 if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaMod:registerTE: nothing to do here, handled by AnicaModBlocks");
+	    	AnicaMod.log(AnicaMod.debug, "AnicaMod:registerTE: nothing to do here, handled by AnicaModBlocks");
 	    }    
 	}
 }

@@ -32,7 +32,7 @@ public class AnicaItemStackHandler extends ItemStackHandler  {
       @Override
       protected void onContentsChanged(int slot) 
       {
-    	  if (AnicaItemStackHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaItemStackHandler: onContentsChanged " + slot); 
+    	  AnicaMod.log(debug, "AnicaItemStackHandler: onContentsChanged " + slot); 
     	  anicaTileEntity.markDirty();
       }
 }

@@ -28,7 +28,7 @@ public class AnicaGeneratorScreen extends ContainerScreen<AnicaGeneratorContaine
 	{
 		super(container, inv, name);
 		this.container = container;
-		if (AnicaGeneratorScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorScreen: Constructor");
+		AnicaMod.log(debug,"AnicaGeneratorScreen: Constructor");
 	}
 
     @Override
@@ -36,13 +36,13 @@ public class AnicaGeneratorScreen extends ContainerScreen<AnicaGeneratorContaine
         this.renderBackground();
         super.render(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
-		if (AnicaGeneratorScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorScreen: render");
+        AnicaMod.log(debug,"AnicaGeneratorScreen: render");
     }
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		if (AnicaGeneratorScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorScreen: drawGuiContainerForegroundLayer");
-		 drawString(Minecraft.getInstance().fontRenderer, "Energy: " + container.getEnergy(), 10, 10, 0xffffff);     
+    	AnicaMod.log(debug,"AnicaGeneratorScreen: drawGuiContainerForegroundLayer");
+		drawString(Minecraft.getInstance().fontRenderer, "Energy: " + container.getEnergy(), 10, 10, 0xffffff);     
     }
 
     @SuppressWarnings("deprecation")
@@ -53,7 +53,7 @@ public class AnicaGeneratorScreen extends ContainerScreen<AnicaGeneratorContaine
         int relX = (this.width - this.xSize) / 2;
         int relY = (this.height - this.ySize) / 2;
         this.blit(relX, relY, 0, 0, this.xSize, this.ySize);
-		if (AnicaGeneratorScreen.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorScreen: drawGuiContainerBackgroundLayer");
+        AnicaMod.log(debug,"AnicaGeneratorScreen: drawGuiContainerBackgroundLayer");
     }
 
 }

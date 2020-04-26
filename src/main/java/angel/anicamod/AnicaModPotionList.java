@@ -24,7 +24,7 @@ public class AnicaModPotionList {
 	private static Method brewing;
 	
 	public static void registerPotion(final IForgeRegistry<Potion> registry) {
-		if (AnicaModPotionList.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaModPotionList: registerPotion" );
+		AnicaMod.log(debug, "AnicaModPotionList: registerPotion" );
 		
 		final Potion[] potions = {
 				ANICA_POTION_ODD,
@@ -37,7 +37,7 @@ public class AnicaModPotionList {
 	// using Java reflection to add brewing 
 	@SuppressWarnings("unused")
 	private static void addMix(Potion base, Item ingredient, Potion result) {
-		if (AnicaModPotionList.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaModPotionList: addMix" );
+		AnicaMod.log(debug, "AnicaModPotionList: addMix" );
 		
 		if(brewing == null) {
 			brewing = ObfuscationReflectionHelper.findMethod(PotionBrewing.class, "addMix", Potion.class, Item.class, Potion.class); // find the addMix class using Java reflection
@@ -45,7 +45,7 @@ public class AnicaModPotionList {
 		}
 		
 		try {
-			if (AnicaModPotionList.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaModPotionList: adding the mix " + result.toString() );
+			AnicaMod.log(debug, "AnicaModPotionList: adding the mix " + result.toString() );
 			brewing.invoke(null, base, ingredient, result);
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			e.printStackTrace();
@@ -54,7 +54,7 @@ public class AnicaModPotionList {
 	
 	// register mixes for the various potions
 	public static void addRecipes() {
-		if (AnicaModPotionList.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaModPotionList: addRecipes" );
+		AnicaMod.log(debug,"AnicaModPotionList: addRecipes" );
 		// Potions seem to only work on the 1.15.2.30 run-time environment - method cannot be found in the 1.15.2.49 - perhaps upgrade my forge
 		addMix(Potions.AWKWARD, Items.CHARCOAL, ANICA_POTION_ODD); // mix for ANICA_POTION_ODD
 		addMix(ANICA_POTION_ODD, Items.REDSTONE, ANICA_POTION_LONG_ODD); // mix for ANICA_POTION_LONG_ODD

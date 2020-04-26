@@ -33,7 +33,7 @@ public class AnicaBatteryContainer extends AnicaContainer {
     public AnicaBatteryContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
         super(windowId, world, pos, playerInventory, player, AnicaModBlocks.anica_battery_container);
         
-        if (AnicaBatteryContainer.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBatteryContainer: Constructor");
+        AnicaMod.log(debug,"AnicaBatteryContainer: Constructor");
        
         tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
         	// net.minecraftforge.items.SlotItemHandler: SlotItemHandler(IItemHandler itemHandler, int index, int xPosition, int yPosition

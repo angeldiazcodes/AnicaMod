@@ -24,13 +24,13 @@ public class EventHandler {
 	@SubscribeEvent
 	public void handlePlayerLoggedInEvent(LoggedInEvent event)
 	{
-		if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: handlePlayerLoggedInEvent");
+		AnicaMod.log(debug, "EventHandler:handlePlayerLoggedInEvent");
 	}
 	
 	@SubscribeEvent
 	public void handleBreakEvent( BlockEvent event)
 	{
-		if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: handleBreakEvent");
+		AnicaMod.log(debug,"EventHandler:handleBreakEvent");
 	}
 	
 	@SubscribeEvent
@@ -40,11 +40,11 @@ public class EventHandler {
 		ItemStack itemStack = playerEntity.getItemStackFromSlot(EquipmentSlotType.MAINHAND);
 		Item item = itemStack.getItem();
 
-		if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: handlePlayerEventBreakSpeed");
-		if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: handlePlayerEventBreakSpeed "+item.toString());
+		AnicaMod.log(debug,"EventHandler:handlePlayerEventBreakSpeed");
+		AnicaMod.log(debug, "EventHandler:handlePlayerEventBreakSpeed "+item.toString());
 		
 		if ( item.equals( AnicaModItems.anica_basic_drill) ) {
-			if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: anica_basic_drill in hand");
+			AnicaMod.log(debug, "EventHandler: anica_basic_drill in hand");
 			
 			if ( itemStack.getTag() == null ) { itemStack.setTag( new CompoundNBT() ); itemStack.getTag().putInt("egy", 0 ); }
 			
@@ -53,16 +53,16 @@ public class EventHandler {
 			
 			if ( newEnergy > 0 )
 			{
-				if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: Energy before " + itemStack.getTag().getInt("egy"));
-				if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: player origional speed " + event.getOriginalSpeed() );
-				if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: player new speed speed " + event.getNewSpeed() );
+				AnicaMod.log(debug,"EventHandler:handlePlayerEventBreakSpeed:  Energy before " + itemStack.getTag().getInt("egy"));
+				AnicaMod.log(debug,"EventHandler:handlePlayerEventBreakSpeed:  player origional speed " + event.getOriginalSpeed() );
+				AnicaMod.log(debug,"EventHandler:handlePlayerEventBreakSpeed:  player new speed speed " + event.getNewSpeed() );
 				
 				itemStack.getTag().putInt("egy", newEnergy );
 				event.setNewSpeed(100); // supper fast - do not know valid inputs
 				
-				if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: Energy after " + itemStack.getTag().getInt("egy"));
-				if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: player origional speed " + event.getOriginalSpeed() );
-				if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: player new speed speed " + event.getNewSpeed() );
+				AnicaMod.log(debug,"EventHandler:handlePlayerEventBreakSpeed:  Energy after " + itemStack.getTag().getInt("egy"));
+				AnicaMod.log(debug,"EventHandler:handlePlayerEventBreakSpeed:  player origional speed " + event.getOriginalSpeed() );
+				AnicaMod.log(debug,"EventHandler:handlePlayerEventBreakSpeed:  player new speed speed " + event.getNewSpeed() );
 			
 			}
 			else
@@ -79,10 +79,10 @@ public class EventHandler {
 	@SubscribeEvent
 	public void handleLivingDropsEvent(LivingDropsEvent event)
 	{
-		if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: handleLivingDropsEvent");
+		AnicaMod.log(debug,"EventHandler:handleLivingDropsEvent");
 	    if (event.getEntity().getType().equals( event.getEntity().getType().SHEEP ) )
 	    {
-	    	if (EventHandler.debug) AnicaMod.logger.info(AnicaMod.logStub + "EventHandler: handleLivingDropsEvent Sheep!!!");
+	    	AnicaMod.log(debug, "EventHandler: handleLivingDropsEvent Sheep!!!");
 	    	
 	        event.getDrops().clear();
 	        ItemStack itemStackToDrop = new ItemStack( Items.DIAMOND, 5);

@@ -19,7 +19,7 @@ public class AnicaModStrucutresList {
 		private static boolean debug = false;
 		
 	    public static void registerStructures(IForgeRegistry<Feature<?>> registry) {
-	        if (AnicaModStrucutresList.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaModStrucutresList: registerStructures" );
+	    	AnicaMod.log(debug, "AnicaModStrucutresList: registerStructures" );
 	        registry.register(ANICA_CABIN);
 	    }
 

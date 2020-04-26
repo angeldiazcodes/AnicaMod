@@ -18,7 +18,7 @@ import net.minecraft.world.storage.WorldInfo;
 
 public class RainItemGUI extends Screen {
 
-	private static boolean debug = true;
+	private static boolean debug = false;
 	private static int RAIN_ITEM_ENERGY_CONSUMPTION = 1000;
 	private ResourceLocation GUI = new ResourceLocation(AnicaMod.MODID, AnicaMod.ANICA_RAIN_ITEM_GUI );
 	private PlayerEntity playerIn = null;
@@ -36,12 +36,12 @@ public class RainItemGUI extends Screen {
 	
 	public RainItemGUI(ITextComponent titleIn) {
 		super(titleIn);
-		if (RainItemGUI.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItemGUI: Constuctor ");
+		AnicaMod.log(debug, "RainItemGUI: Constuctor ");
 	}
  
 	public RainItemGUI(ITextComponent titleIn, World worldIn, PlayerEntity playerIn, Hand handIn) {
 		super(titleIn);
-		if (RainItemGUI.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItemGUI: Constuctor long");
+		AnicaMod.log(debug,"RainItemGUI: Constuctor long");
 		this.playerIn = playerIn;
 		this.handIn = handIn;
 		if (playerIn != null ) this.stack = playerIn.getHeldItem(handIn);
@@ -51,7 +51,7 @@ public class RainItemGUI extends Screen {
 	
 	@Override
 	public void render(int p_render_1_, int p_render_2_, float p_render_3_) {
-		if (RainItemGUI.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItemGUI: render ");
+		AnicaMod.log(debug,"RainItemGUI: render ");
 		this.minecraft.getTextureManager().bindTexture(GUI);
         int relX = (this.width - this.xSize) / 2;
         int relY = (this.height - this.ySize) / 2;
@@ -83,7 +83,7 @@ public class RainItemGUI extends Screen {
 	protected void init() {
 		buttons.clear();
 
-		if (RainItemGUI.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItemGUI: init ");
+		AnicaMod.log(debug, "RainItemGUI: init ");
 		if ( worldInfo != null )
 		{
 		rainOn  = new Button((this.width/2) - buttonWidth - 5 , (this.height/2) + 20 , buttonWidth, buttonHeight, "Rain On", 
@@ -98,7 +98,7 @@ public class RainItemGUI extends Screen {
 					{
 						stack.getTag().putInt("egy", newEnergy );
 						
-						if (RainItemGUI.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItemGUI: rainOn");
+						AnicaMod.log(debug,"RainItemGUI: rainOn");
 						worldInfo.setClearWeatherTime(0);
 						worldInfo.setRainTime( 100000 );
 						worldInfo.setRaining( true );
@@ -125,7 +125,7 @@ public class RainItemGUI extends Screen {
 					{
 						stack.getTag().putInt("egy", newEnergy );
 						
-						if (RainItemGUI.debug) AnicaMod.logger.info(AnicaMod.logStub + "RainItemGUI: rainOff");
+						AnicaMod.log(debug, "RainItemGUI: rainOff");
 						worldInfo.setClearWeatherTime(100000);
 						worldInfo.setRainTime( 0 );
 						worldInfo.setRaining( false );
@@ -146,13 +146,11 @@ public class RainItemGUI extends Screen {
 	
 	@Override
 	public boolean keyPressed(int p_keyPressed_1_, int p_keyPressed_2_, int p_keyPressed_3_) {
-		// TODO Auto-generated method stub
 		return super.keyPressed(p_keyPressed_1_, p_keyPressed_2_, p_keyPressed_3_);
 	}
 	
 	@Override
 	public boolean isPauseScreen() {
-		// TODO Auto-generated method stub
 		return super.isPauseScreen();
 	}
 	

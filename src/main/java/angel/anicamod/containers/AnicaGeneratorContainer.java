@@ -34,7 +34,7 @@ public class AnicaGeneratorContainer extends AnicaContainer {
     public AnicaGeneratorContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
         super(windowId, world, pos, playerInventory, player, AnicaModBlocks.anica_generator_container);
         
-        if (AnicaGeneratorContainer.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorContainer: Constructor");
+        AnicaMod.log(debug, "AnicaGeneratorContainer: Constructor");
        
         tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
         	// net.minecraftforge.items.SlotItemHandler: SlotItemHandler(IItemHandler itemHandler, int index, int xPosition, int yPosition

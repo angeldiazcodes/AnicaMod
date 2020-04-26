@@ -28,19 +28,19 @@ public class AnicaCabinStrucutre extends Structure<NoFeatureConfig> {
     
 	public AnicaCabinStrucutre(Function<Dynamic<?>, ? extends NoFeatureConfig> deserialize) {
 		super(deserialize);
-		if (AnicaCabinStrucutre.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaCabinStrucutre: Constructor ");
+		AnicaMod.log(debug,"AnicaCabinStrucutre: Constructor ");
 	}
 
 	@Override
 	public boolean func_225558_a_(BiomeManager arg0, ChunkGenerator arg1, Random arg2, int arg3, int arg4, Biome biome) {
-    	if (AnicaCabinStrucutre.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaCabinStrucutre:func_225558_a_: " + biome.getDisplayName().toString());
+		AnicaMod.log(debug, "AnicaCabinStrucutre:func_225558_a_: " + biome.getDisplayName().toString());
     	
     	Random rand = new Random();
     	int rand_int1 = rand.nextInt(1000);
     	
     	if ( rand_int1 < FREQUENCY )
     	{
-    		if (AnicaCabinStrucutre.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaCabinStrucutre:func_225558_a_: TRUE");
+    		AnicaMod.log(debug,"AnicaCabinStrucutre:func_225558_a_: TRUE");
     		return true;
     	}
     	else return false;
@@ -53,7 +53,7 @@ public class AnicaCabinStrucutre extends Structure<NoFeatureConfig> {
 
 	@Override
 	public IStartFactory getStartFactory() {
-		if (AnicaCabinStrucutre.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaCabinStrucutre:getStartFactory");
+		AnicaMod.log(debug, "AnicaCabinStrucutre:getStartFactory");
 		return Start::new;
 	}
 
@@ -66,12 +66,12 @@ public class AnicaCabinStrucutre extends Structure<NoFeatureConfig> {
 
         public Start(Structure<?> p_i225874_1_, int p_i225874_2_, int p_i225874_3_, MutableBoundingBox p_i225874_4_, int p_i225874_5_, long p_i225874_6_) {
             super(p_i225874_1_, p_i225874_2_, p_i225874_3_, p_i225874_4_, p_i225874_5_, p_i225874_6_);
-            if (AnicaCabinStrucutre.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaCabinStrucutre:Start: Constructor" );
+            AnicaMod.log(debug, "AnicaCabinStrucutre:Start: Constructor" );
         }
 
         @Override
         public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn) {
-        	if (AnicaCabinStrucutre.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaCabinStrucutre:Start:init biomeIn " + biomeIn.getDisplayName().toString() );
+        	AnicaMod.log(debug,"AnicaCabinStrucutre:Start:init biomeIn " + biomeIn.getDisplayName().toString() );
             
         	BlockPos blockpos = new BlockPos(chunkX * 16, 10, chunkZ * 16);
 

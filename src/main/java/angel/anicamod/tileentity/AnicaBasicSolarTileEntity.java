@@ -59,12 +59,12 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
     
 	public AnicaBasicSolarTileEntity(final TileEntityType<?> tileEntityTypeIn) {
 		super(tileEntityTypeIn);
-		if (AnicaBasicSolarTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarTileEntity: Contructor 1 " + tileEntityTypeIn.toString() );
+		AnicaMod.log(debug, "AnicaBasicSolarTileEntity: Contructor 1 " + tileEntityTypeIn.toString() );
 	}
 
 	public AnicaBasicSolarTileEntity() {
 		this(AnicaModBlocks.anica_basic_solar_tile_entity);
-		if (AnicaBasicSolarTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarTileEntity: Contructor 2 " + AnicaModBlocks.anica_basic_solar_tile_entity.getRegistryName() );
+		AnicaMod.log(debug, "AnicaBasicSolarTileEntity: Contructor 2 " + AnicaModBlocks.anica_basic_solar_tile_entity.getRegistryName() );
 	}
 	
 	/*
@@ -88,7 +88,7 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
         
         super.read(tag);
         
-		if (AnicaBasicSolarTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarTileEntity: read TAG " + invTag.toString() );
+        AnicaMod.log(debug,"AnicaBasicSolarTileEntity: read TAG " + invTag.toString() );
 	}
 
 	/*
@@ -114,7 +114,7 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
 
         tag.putInt("counter", tickCount);
         
-		if (AnicaBasicSolarTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarTileEntity: write TAG " + tag.toString() );
+        AnicaMod.log(debug, "AnicaBasicSolarTileEntity: write TAG " + tag.toString() );
         return super.write(tag);
 	}
     
@@ -129,7 +129,7 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
 	private AnicaItemStackHandler createHandler()
 	{
 		anicaItemStackHandler = new AnicaItemStackHandler( this, 3 );
-		if (AnicaBasicSolarTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarTileEntity: " + anicaItemStackHandler.getSlots() );
+		AnicaMod.log(debug,"AnicaBasicSolarTileEntity: " + anicaItemStackHandler.getSlots() );
 		return anicaItemStackHandler;
 	}
     
@@ -163,7 +163,7 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
      */
     @Override
     public Container createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-    	if (AnicaBasicSolarTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarTileEntity: createMenu " );
+    	AnicaMod.log(debug, "AnicaBasicSolarTileEntity: createMenu " );
     	anicaBasicSolarContainer = new AnicaBasicSolarContainer(i, world, pos, playerInventory, playerEntity);
     	
     	return anicaBasicSolarContainer;
@@ -171,14 +171,14 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
 
 	@Override
 	public ITextComponent getDisplayName() {
-		if (AnicaBasicSolarTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarTileEntity: getDisplayName " + getType().getRegistryName().getPath());
+		AnicaMod.log(debug, "AnicaBasicSolarTileEntity: getDisplayName " + getType().getRegistryName().getPath());
 		return new StringTextComponent(getType().getRegistryName().getPath());
 	}
 
 	@Override
 	public void tick() {
         if (world.isRemote) {
-        	if (AnicaBasicSolarTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarTileEntity: world is remote - no tick for you" );
+        	AnicaMod.log(debug, "AnicaBasicSolarTileEntity: world is remote - no tick for you" );
             return;
         }
         
@@ -214,7 +214,7 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
                     TileEntity te = world.getTileEntity(pos.offset(direction));
                     if (te != null) {
                         boolean doContinue = te.getCapability(CapabilityEnergy.ENERGY, direction).map(handler -> {
-                        			if (AnicaBasicSolarTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaGeneratorTileEntity: handler.canReceive() " + handler.canReceive());
+                        			AnicaMod.log(debug, "AnicaGeneratorTileEntity: handler.canReceive() " + handler.canReceive());
                                     if (handler.canReceive()) {
                                         int received = handler.receiveEnergy(Math.min(capacity.get(), 100), false);
                                         capacity.addAndGet(-received);
@@ -241,7 +241,7 @@ public class AnicaBasicSolarTileEntity extends TileEntity  implements ITickableT
 	@Override
 	public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
 		super.onDataPacket(net, pkt);
-		if (AnicaBasicSolarTileEntity.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolarTileEntity: onDataPacket " + pkt.toString());
+		AnicaMod.log(debug, "AnicaBasicSolarTileEntity: onDataPacket " + pkt.toString());
 	}
 	
     private IEnergyStorage createEnergy() {

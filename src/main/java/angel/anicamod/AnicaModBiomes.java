@@ -12,14 +12,15 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
 
 public class AnicaModBiomes {
-
+		private static boolean debug = false;
+		
 		// Biomes
 		@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BIOME)
 		public static Biome anica_biome = ModUtil._null();
 		
 		public static void registerBiomes(IForgeRegistry<Biome> registry)
 		{
-			if (AnicaMod.debug) AnicaMod.logger.info(AnicaMod.logStub + "registerBiomes: Biomes registered " + registry.toString());
+			AnicaMod.log(debug, "registerBiomes: Biomes registered " + registry.toString());
 			anica_biome = new AnicaBiome();
 			anica_biome.setRegistryName( new ResourceLocation( AnicaMod.MODID, AnicaMod.ANICA_BIOME) );
 			registry.register( anica_biome );

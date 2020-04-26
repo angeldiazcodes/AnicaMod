@@ -34,7 +34,7 @@ public class AnicaBasicSolar extends Block  {
 	
 	public AnicaBasicSolar(final Properties properties) {			
 		super( properties );	
-		if (AnicaBasicSolar.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolar: constructor ");
+		AnicaMod.log(debug,"AnicaBasicSolar: constructor ");
 		setRegistryName(new ResourceLocation(AnicaMod.MODID, AnicaMod.ANICA_BASIC_SOLAR));
 	}
 
@@ -69,7 +69,7 @@ public class AnicaBasicSolar extends Block  {
 			Hand hand, BlockRayTraceResult result) {
     	ActionResultType rt = super.onBlockActivated(state, world, pos, player, hand, result);
     	
-    	if (AnicaBasicSolar.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolar: onBlockActivated " + rt.toString());
+    	AnicaMod.log(debug,"AnicaBasicSolar: onBlockActivated " + rt.toString());
     	
         if (!world.isRemote) {
             TileEntity tileEntity = world.getTileEntity(pos);
@@ -105,27 +105,27 @@ public class AnicaBasicSolar extends Block  {
 	@Nullable
 	@Override
 	public TileEntity createTileEntity(final BlockState state, final IBlockReader world) {
-		if (AnicaBasicSolar.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolar: Creating tile entity " + AnicaModBlocks.anica_basic_solar_tile_entity.toString() );
+		AnicaMod.log(debug,"AnicaBasicSolar: Creating tile entity " + AnicaModBlocks.anica_basic_solar_tile_entity.toString() );
 		return AnicaModBlocks.anica_basic_solar_tile_entity.create();
 	}
 	
 	@SuppressWarnings("deprecation")
 	@Override
 	public void onBlockClicked(BlockState state, World worldIn, BlockPos pos, PlayerEntity player) {
-		if (AnicaBasicSolar.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolar: onBlockClicked ");
+		AnicaMod.log(debug,"AnicaBasicSolar: onBlockClicked ");
 		super.onBlockClicked(state, worldIn, pos, player);
 	}
 
     @Override
     public void onBlockPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
         if (entity != null) {
-        	if (AnicaBasicSolar.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolar: onBlockPlacedBy ");
+        	AnicaMod.log(debug,"AnicaBasicSolar: onBlockPlacedBy ");
             world.setBlockState(pos, state.with(BlockStateProperties.FACING, getFacingFromEntity(pos, entity)), 2);
         }
     }
 
     public static Direction getFacingFromEntity(BlockPos clickedBlock, LivingEntity entity) {
-    	if (AnicaBasicSolar.debug) AnicaMod.logger.info(AnicaMod.logStub + "AnicaBasicSolar: getFacingFromEntity ");
+    	AnicaMod.log(debug,"AnicaBasicSolar: getFacingFromEntity ");
     	return Direction.getFacingFromVector((float) (entity.lastTickPosX - clickedBlock.getX()), (float) (entity.lastTickPosY - clickedBlock.getY()), (float) (entity.lastTickPosZ - clickedBlock.getZ()));
     }
 
