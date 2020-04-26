@@ -14,7 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class WorldGen {
 
-		private static boolean debug = false;
+		private static boolean debug = true;
 		
 	    public static void setupWorldGen() {
 	    	
@@ -28,8 +28,6 @@ public class WorldGen {
 	                continue;
 	            }
 	            
-	            AnicaMod.log(debug,"setupWorldGen: " + biome.getDisplayName().getString());
-   
                 addSurfaceStructure(biome, AnicaModStrucutresList.ANICA_CABIN);
                 
 	            // Use categories to allow compatibility with biome mods such as Biomes O' Plenty.

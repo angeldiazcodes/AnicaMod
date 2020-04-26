@@ -33,7 +33,7 @@ public class AnicaCabinStrucutre extends Structure<NoFeatureConfig> {
 
 	@Override
 	public boolean func_225558_a_(BiomeManager arg0, ChunkGenerator arg1, Random arg2, int arg3, int arg4, Biome biome) {
-		AnicaMod.log(debug, "AnicaCabinStrucutre:func_225558_a_: " + biome.getDisplayName().toString());
+		AnicaMod.log(debug, "AnicaCabinStrucutre:func_225558_a_: Starting ... ");
     	
     	Random rand = new Random();
     	int rand_int1 = rand.nextInt(1000);
@@ -71,7 +71,7 @@ public class AnicaCabinStrucutre extends Structure<NoFeatureConfig> {
 
         @Override
         public void init(ChunkGenerator<?> generator, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn) {
-        	AnicaMod.log(debug,"AnicaCabinStrucutre:Start:init biomeIn " + biomeIn.getDisplayName().toString() );
+        	AnicaMod.log(debug,"AnicaCabinStrucutre:Start:init starting ... ");
             
         	BlockPos blockpos = new BlockPos(chunkX * 16, 10, chunkZ * 16);
 

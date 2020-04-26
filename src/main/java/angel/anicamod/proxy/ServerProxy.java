@@ -8,13 +8,10 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
 public class ServerProxy implements IProxy {
-	private static boolean debug = false;
 
 	@Override
 	public void init()
 	{
-		AnicaMod.log(debug, "ServerProxy:Init");
-		
 		// Ore generation
         OreGeneration.setupOrgeGeneration();
         
