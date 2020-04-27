@@ -1,5 +1,6 @@
 package angel.anicamod.world;
 
+import angel.anicamod.AnicaMod;
 import angel.anicamod.AnicaModBlocks;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -18,7 +19,7 @@ public class OreGeneration {
 	{
 		for (Biome biome : ForgeRegistries.BIOMES)
 		{
-			CountRangeConfig anica_ore_placement = new CountRangeConfig(50, 20, 20, 100); // spawn between 20 and 100 ; 1000 is frequency - its a lot right now
+			CountRangeConfig anica_ore_placement = new CountRangeConfig(AnicaMod.ANICA_ORE_FREQUENCY, 20, 20, 100); // spawn between 20 and 100 ; first argument is frequency - 1000 is frequency - its a lot right now
 			ConfiguredPlacement anica_ore_custom_config = Placement.COUNT_RANGE.configure( anica_ore_placement );
 			OreFeatureConfig anica_ore_feature_config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, AnicaModBlocks.anica_ore.getDefaultState() , 10 ); // 10 is max ore-vien size
 					

@@ -49,7 +49,7 @@ public class AnicaModEntities {
 			if ( biome != null)
 			{
 				AnicaMod.log(debug, "registerEntitySpawnEgg: " + biome.toString() );
-				biome.getSpawns(entity.getClassification()).add(new SpawnListEntry(entity, 1000, 2, 10) ); // spawn rate, min spawn together, max spawn together
+				biome.getSpawns(entity.getClassification()).add(new SpawnListEntry(entity, AnicaMod.ANICA_MOB_FREQUENCY, AnicaMod.ANICA_MOB_MIN_SPAWN, AnicaMod.ANICA_MOB_MAX_SPAWN) ); // spawn rate, min spawn together, max spawn together
 			}
 		}
 	}

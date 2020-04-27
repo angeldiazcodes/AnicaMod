@@ -73,6 +73,7 @@ public class AnicaMod {
 	// Blocks
 	public static final String ANICA_BLOCK	 				= "anica_block";
 	public static final String ANICA_ORE	 				= "anica_ore";
+	public static final int    ANICA_ORE_FREQUENCY			= 5;
 	
 	public static final String ANICA_FURNACE				= "anica_furnace";
 	public static final String ANICA_FURNACE_CONTAINER		= "anica_furnace_container";
@@ -115,6 +116,9 @@ public class AnicaMod {
 	// Mobs
 	public static final String ANICA_MOB_ENTITY				= "anica_mob_entity";
 	public static final String ANICA_MOB_ENTITY_EGG			= "anica_mob_entity_egg";
+	public static final int    ANICA_MOB_FREQUENCY			= 100;
+	public static final int    ANICA_MOB_MIN_SPAWN			= 2;
+	public static final int    ANICA_MOB_MAX_SPAWN			= 6;
 	
 	// Biomes
 	public static final String ANICA_BIOME					= "anica_biome";
@@ -128,6 +132,7 @@ public class AnicaMod {
 	
 	// Structures
 	public static final String ANICA_CABIN		 			= "anica_cabin";	
+	public static final int    ANICA_CABIN_FREQUENCY		= 2;
 	
 	// Fluids
 	public static final String ANICA_ACID_STILL		  		= "anica_acid_still";
@@ -150,7 +155,7 @@ public class AnicaMod {
 	
 	public static final Logger logger = LogManager.getLogger(MODID);
 	//public static final String logStub = "https://github.com/angeldiazcodes/AnicaMod:  ";
-	public static boolean debug = true;
+	public static boolean debug = false;
 
 	public static final ItemGroup anicaModTab = new AnicaItemGroup();  
 	

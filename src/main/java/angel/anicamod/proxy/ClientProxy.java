@@ -29,7 +29,7 @@ public class ClientProxy implements IProxy {
 	public void init()
 	{
 		AnicaMod.log(debug,"ClientProxy:Init Starting " + ScreenManager.isMissingScreen());
-        
+		
 		// add potion recipies
 		AnicaModPotionList.addRecipes();
 		

@@ -19,12 +19,13 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 public class AnicaCabinStrucutre extends Structure<NoFeatureConfig> {
 
 	private static boolean debug = false;
+	
     @SuppressWarnings("WeakerAccess")
     public static final String NAME = AnicaMod.MODID +  ":" + AnicaMod.ANICA_CABIN;
     private static final int CHUNK_RADIUS = 3;
     private static final int FEATURE_DISTANCE = 35;
     private static final int FEATURE_SEPARATION = 8;
-    private static final int FREQUENCY = 20; 
+    private static final int FREQUENCY = AnicaMod.ANICA_CABIN_FREQUENCY; // lower the number the less cabin's spawned
     
 	public AnicaCabinStrucutre(Function<Dynamic<?>, ? extends NoFeatureConfig> deserialize) {
 		super(deserialize);

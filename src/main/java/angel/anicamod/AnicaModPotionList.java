@@ -56,9 +56,10 @@ public class AnicaModPotionList {
 	public static void addRecipes() {
 		AnicaMod.log(debug,"AnicaModPotionList: addRecipes" );
 		// Potions seem to only work on the 1.15.2.30 run-time environment - method cannot be found in the 1.15.2.49 - perhaps upgrade my forge
+		/*
 		addMix(Potions.AWKWARD, Items.CHARCOAL, ANICA_POTION_ODD); // mix for ANICA_POTION_ODD
 		addMix(ANICA_POTION_ODD, Items.REDSTONE, ANICA_POTION_LONG_ODD); // mix for ANICA_POTION_LONG_ODD
 		addMix(ANICA_POTION_ODD, Items.FEATHER, ANICA_POTION_SHORT_ODD); // mix ANICA_POTION_SHORT_ODD
-		
+		*/
 	}
 }
