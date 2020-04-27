@@ -12,6 +12,7 @@ import angel.anicamod.blocks.AnicaLog;
 import angel.anicamod.blocks.AnicaOre;
 import angel.anicamod.blocks.AnicaPlank;
 import angel.anicamod.blocks.AnicaSapling;
+import angel.anicamod.blocks.EnderPearlOre;
 import angel.anicamod.blocks.AnicaCropPepperBlock;
 import angel.anicamod.containers.AnicaBasicCableContainer;
 import angel.anicamod.containers.AnicaBasicSolarContainer;
@@ -47,6 +48,9 @@ public class AnicaModBlocks {
 	
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_ORE)
 	public static AnicaOre anica_ore = ModUtil._null();
+	
+	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ENDER_PEARL_ORE)
+	public static EnderPearlOre ender_pearl_ore = ModUtil._null();
 	
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_FURNACE)
 	public static AnicaFurnace anica_furnace = ModUtil._null();
@@ -301,6 +305,9 @@ public class AnicaModBlocks {
 		
 		anica_ore = new AnicaOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0f, 3.0f).lightValue(5).sound(SoundType.METAL));
 		registry.register(anica_ore);
+		
+		ender_pearl_ore = new EnderPearlOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0f, 3.0f).lightValue(5).sound(SoundType.METAL));
+		registry.register(ender_pearl_ore);
 		
 		anica_furnace = new AnicaFurnace(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0f, 3.0f).lightValue(5).sound(SoundType.METAL));
 		registry.register(anica_furnace);	

@@ -74,6 +74,8 @@ public class AnicaMod {
 	public static final String ANICA_BLOCK	 				= "anica_block";
 	public static final String ANICA_ORE	 				= "anica_ore";
 	public static final int    ANICA_ORE_FREQUENCY			= 5;
+	public static final String ENDER_PEARL_ORE				= "ender_pearl_ore";
+	public static final int    ENDER_PEARL_ORE_FREQUENCY	= 5;
 	
 	public static final String ANICA_FURNACE				= "anica_furnace";
 	public static final String ANICA_FURNACE_CONTAINER		= "anica_furnace_container";

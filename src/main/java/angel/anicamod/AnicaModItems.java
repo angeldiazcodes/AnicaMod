@@ -24,6 +24,7 @@ import angel.anicamod.items.AnicaPlankItem;
 import angel.anicamod.items.AnicaSaplingItem;
 import angel.anicamod.items.AnicaShovel;
 import angel.anicamod.items.AnicaSword;
+import angel.anicamod.items.EnderPearlOreItem;
 import angel.anicamod.items.RainItem;
 import angel.anicamod.lists.ArmorMaterialList;
 import angel.anicamod.lists.ToolMaterialList;
@@ -81,6 +82,9 @@ public class AnicaModItems {
 	
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_ORE)
 	public static Item anica_ore;
+	
+	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ENDER_PEARL_ORE)
+	public static Item ender_pearl_ore;
 	
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_FURNACE)
 	public static Item anica_furnace;
@@ -168,6 +172,9 @@ public class AnicaModItems {
 		
 		anica_ore = new AnicaOreItem(AnicaModBlocks.anica_ore, new Item.Properties().group(AnicaMod.anicaModTab));
 		registry.register(anica_ore);	
+		
+		ender_pearl_ore = new EnderPearlOreItem(AnicaModBlocks.ender_pearl_ore, new Item.Properties().group(AnicaMod.anicaModTab));
+		registry.register(ender_pearl_ore);	
 		
 		anica_furnace = new AnicaFurnaceItem(AnicaModBlocks.anica_furnace, new Item.Properties().group(AnicaMod.anicaModTab).maxStackSize(1));
 		registry.register(anica_furnace);	
