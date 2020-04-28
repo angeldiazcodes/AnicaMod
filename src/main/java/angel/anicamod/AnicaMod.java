@@ -72,10 +72,11 @@ public class AnicaMod {
 	
 	// Blocks
 	public static final String ANICA_BLOCK	 				= "anica_block";
+	public static final String COMPRESSED_QUARTZ			= "compressed_quartz";
 	public static final String ANICA_ORE	 				= "anica_ore";
 	public static final int    ANICA_ORE_FREQUENCY			= 5;
 	public static final String ENDER_PEARL_ORE				= "ender_pearl_ore";
-	public static final int    ENDER_PEARL_ORE_FREQUENCY	= 5;
+	public static final int    ENDER_PEARL_ORE_FREQUENCY	= 20;
 	
 	public static final String ANICA_FURNACE				= "anica_furnace";
 	public static final String ANICA_FURNACE_CONTAINER		= "anica_furnace_container";
@@ -134,7 +135,7 @@ public class AnicaMod {
 	
 	// Structures
 	public static final String ANICA_CABIN		 			= "anica_cabin";	
-	public static final int    ANICA_CABIN_FREQUENCY		= 2;
+	public static final int    ANICA_CABIN_FREQUENCY		= 1;
 	
 	// Fluids
 	public static final String ANICA_ACID_STILL		  		= "anica_acid_still";

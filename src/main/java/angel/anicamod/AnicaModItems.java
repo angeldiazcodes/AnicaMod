@@ -1,5 +1,6 @@
 package angel.anicamod;
 
+import angel.anicamod.blocks.CompressedQuartz;
 import angel.anicamod.items.AnicaAcidBucketItem;
 import angel.anicamod.items.AnicaAxe;
 import angel.anicamod.items.AnicaBasicCableItem;
@@ -24,6 +25,7 @@ import angel.anicamod.items.AnicaPlankItem;
 import angel.anicamod.items.AnicaSaplingItem;
 import angel.anicamod.items.AnicaShovel;
 import angel.anicamod.items.AnicaSword;
+import angel.anicamod.items.CompressedQuartzItem;
 import angel.anicamod.items.EnderPearlOreItem;
 import angel.anicamod.items.RainItem;
 import angel.anicamod.lists.ArmorMaterialList;
@@ -79,6 +81,9 @@ public class AnicaModItems {
 	// Blocks
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BLOCK)
 	public static Item anica_block;
+	
+	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.COMPRESSED_QUARTZ)
+	public static Item compressed_quartz;
 	
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_ORE)
 	public static Item anica_ore;
@@ -169,6 +174,9 @@ public class AnicaModItems {
 	    // Blocks
 	    anica_block = new AnicaBlockItem( AnicaModBlocks.anica_block, new Item.Properties().group(AnicaMod.anicaModTab));
 		registry.register(anica_block);
+
+	    compressed_quartz = new CompressedQuartzItem( AnicaModBlocks.compressed_quartz, new Item.Properties().group(AnicaMod.anicaModTab));
+		registry.register(compressed_quartz);
 		
 		anica_ore = new AnicaOreItem(AnicaModBlocks.anica_ore, new Item.Properties().group(AnicaMod.anicaModTab));
 		registry.register(anica_ore);	

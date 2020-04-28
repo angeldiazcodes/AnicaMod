@@ -1,0 +1,18 @@
+{
+	"type" : "minecraft:crafting_shaped",
+	
+	"pattern":
+	[
+		"#D#",
+		"DDD",
+		"#D#"
+	],
+	
+	"key":
+	{
+		"#": { "item": "minecraft:quartz_block"},
+		"D": { "item": "minecraft:diamond"}
+	},
+	
+	"result": { "item": "anicamod:compressed_quartz"}
+}

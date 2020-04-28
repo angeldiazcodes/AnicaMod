@@ -17,13 +17,25 @@ public class OreGeneration {
 	@SuppressWarnings("rawtypes")
 	public static void setupOrgeGeneration() 
 	{
+		CountRangeConfig placementConfig = null;
+		ConfiguredPlacement placement = null;
+		OreFeatureConfig featureConfig = null;
+		
 		for (Biome biome : ForgeRegistries.BIOMES)
 		{
-			CountRangeConfig anica_ore_placement = new CountRangeConfig(AnicaMod.ANICA_ORE_FREQUENCY, 20, 20, 100); // spawn between 20 and 100 ; first argument is frequency - 1000 is frequency - its a lot right now
-			ConfiguredPlacement anica_ore_custom_config = Placement.COUNT_RANGE.configure( anica_ore_placement );
-			OreFeatureConfig anica_ore_feature_config = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, AnicaModBlocks.anica_ore.getDefaultState() , 10 ); // 10 is max ore-vien size
+			// Anica Ore
+			placementConfig = new CountRangeConfig(AnicaMod.ANICA_ORE_FREQUENCY, 20, 20, 100); // spawn between 20 and 100 ; first argument is frequency - 1000 is frequency - its a lot right now
+			placement = Placement.COUNT_RANGE.configure( placementConfig );
+			featureConfig = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, AnicaModBlocks.anica_ore.getDefaultState() , 10 ); // 10 is max ore-vien size
 					
-            biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(anica_ore_feature_config).withPlacement(anica_ore_custom_config));
+            biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(featureConfig).withPlacement(placement));
+            
+            // Ender Pearl Ore
+			placementConfig = new CountRangeConfig(AnicaMod.ENDER_PEARL_ORE_FREQUENCY, 20, 10, 25); // spawn between 20 and 100 ; first argument is frequency - 1000 is frequency - its a lot right now
+			placement = Placement.COUNT_RANGE.configure( placementConfig );
+			featureConfig = new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, AnicaModBlocks.ender_pearl_ore.getDefaultState() , 3 ); // 3 is max ore-vien size
+					
+            biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(featureConfig).withPlacement(placement));            
 		}
 	
 		

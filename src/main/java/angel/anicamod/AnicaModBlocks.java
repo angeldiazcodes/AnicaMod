@@ -12,6 +12,7 @@ import angel.anicamod.blocks.AnicaLog;
 import angel.anicamod.blocks.AnicaOre;
 import angel.anicamod.blocks.AnicaPlank;
 import angel.anicamod.blocks.AnicaSapling;
+import angel.anicamod.blocks.CompressedQuartz;
 import angel.anicamod.blocks.EnderPearlOre;
 import angel.anicamod.blocks.AnicaCropPepperBlock;
 import angel.anicamod.containers.AnicaBasicCableContainer;
@@ -45,6 +46,9 @@ public class AnicaModBlocks {
 	// Blocks
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_BLOCK)
 	public static AnicaBlock anica_block = ModUtil._null();
+
+	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.COMPRESSED_QUARTZ)
+	public static CompressedQuartz compressed_quartz = ModUtil._null();
 	
 	@ObjectHolder(AnicaMod.MODID + ":" + AnicaMod.ANICA_ORE)
 	public static AnicaOre anica_ore = ModUtil._null();
@@ -302,6 +306,9 @@ public class AnicaModBlocks {
     	
 		anica_block = new AnicaBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2.0f, 3.0f).lightValue(5).sound(SoundType.METAL));
 		registry.register(anica_block);
+		
+		compressed_quartz = new CompressedQuartz(Block.Properties.create(Material.IRON).hardnessAndResistance(2.0f, 3.0f).lightValue(5).sound(SoundType.METAL));
+		registry.register(compressed_quartz);
 		
 		anica_ore = new AnicaOre(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0f, 3.0f).lightValue(5).sound(SoundType.METAL));
 		registry.register(anica_ore);
